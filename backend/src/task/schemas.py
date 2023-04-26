@@ -3,12 +3,11 @@ from datetime import datetime
 
 
 class OlimpiadCreate(BaseModel):
-    id : int
     title : str
     order : str
     # time_start : 
     # time_end : 
-    work_time : int
+    # work_time : int
 
 
 class Olimpiadraed(BaseModel):

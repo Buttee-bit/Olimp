@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime,timedelta
 from sqlalchemy import ForeignKey, MetaData, Table, Column, Integer, String, TIMESTAMP
 from ..auth.models import user
 
@@ -11,8 +11,8 @@ olimpiad = Table(
     Column('title', String),
     Column('order', String),
     Column("time_start", TIMESTAMP, default = datetime.utcnow),
-    Column("time_end", TIMESTAMP, default = datetime.utcnow),
-    Column("work_time", Integer, default = 7200 )
+    Column("time_end", TIMESTAMP, default = ((datetime.utcnow()) + timedelta(days=2))),
+    Column("work_time", Integer, default = 7200)
 )
 
 modyle = Table(

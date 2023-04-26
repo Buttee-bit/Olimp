@@ -19,7 +19,7 @@ async def get_task(session: AsyncSession = Depends(get_async_session)):
 @router.post('/olimpiad')
 async def post_olimpiad(new_olimpiad : OlimpiadCreate, session: AsyncSession = Depends(get_async_session)):
     stmt = insert(olimpiad).values(**new_olimpiad.dict())
-    await session.execute()
+    await session.execute(stmt)
     await session.commit()
     return {
         'olimpiad': 'succes created'
