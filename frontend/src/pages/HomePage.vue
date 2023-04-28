@@ -36,9 +36,9 @@
     </div>
     <div class="second-block">
         <div class="prog-table">
-            <div class="svg-elem">
-                <img src="../assets/program.svg" alt="">
-            </div>
+            <!-- <div class="svg-elem">
+                <img src="../assets/cryptography.svg" alt="">
+            </div> -->
             <div class="title-prog">
                 <h3>Криптография</h3>
             </div>
@@ -52,9 +52,9 @@
     </div>
     <div class="second-block">
         <div class="prog-table">
-            <div class="svg-elem">
+            <!-- <div class="svg-elem">
                 <img src="../assets/program.svg" alt="">
-            </div>
+            </div> -->
             <div class="title-prog">
                 <h3>Базы данных</h3>
             </div>
@@ -93,7 +93,7 @@ export default {
     justify-content: space-around;
     align-items: center;
     justify-items: center;
-    font-size: 26px;
+    font-size: 42px;
     margin-top: 15px;
 }
 
@@ -103,7 +103,7 @@ p {
 }
 .color-head{
     font-size: 36px;
-    background-image: linear-gradient(to bottom right, #ff8800, #ff3c00);
+    background-image: linear-gradient(to bottom right, #ff6600, #ff3c00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -136,8 +136,9 @@ p {
     width: 70%;
     /* border: 2px solid #b43f11; */
     display: table-column;
-    background-image: linear-gradient(to bottom right, #6b3e0a, #723605);
+    background: linear-gradient(to left, transparent, rgb(223, 95, 21));
     opacity: 0.8;
+    border-radius: 7px;
 
 }
 .svg-elem{
@@ -160,6 +161,8 @@ p {
     color: #ffffff;
     margin-left: 5%;
     margin-bottom: 3%;
+    font-size: 20px;
+
 
 }
 .thred-block{

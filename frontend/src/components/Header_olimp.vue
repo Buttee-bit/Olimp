@@ -31,7 +31,7 @@ export default{
   width: 100%;
   height: 60px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
   background: #18181C;
   /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); */
@@ -53,11 +53,14 @@ export default{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 2%;
 
 }
 .registration-button-wrap{
     display: flex;
-    margin-left: 10%;
+}
+.sigin-button-wrap{
+    margin-right: 5%;
 }
 .sigin-button{
     height: 35px;
@@ -75,7 +78,5 @@ export default{
     background-color: #18181C;
     border: 2px solid #b43f11;
     border-radius: 7px;
-
-
 }
 </style>

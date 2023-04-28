@@ -4,15 +4,13 @@
             <img src="../assets/academ.svg" alt="">
         </div>
         <div class="kaff-title">
-            <h3>Военно-космическая</h3>
+            <h3 class="kaf">Военно-космическая</h3>
             <p></p>
-            <h3>академия им. А.Ф.Можайского</h3>
+            <h3 class="kaf">академия им. А.Ф.Можайского</h3>
             <p></p>
-            <h3>62 Кафедра</h3>
+            <h3 class="kaf">62 Кафедра</h3>
         </div>
         <div class="link-text">
-            <p>Связаться с нами</p>
-            <p>Регламент</p>
             <p>Сайт академии</p>
         </div>
     </div>
@@ -31,21 +29,26 @@ export default{
 	margin: 0;
 	padding: 0 0 10px 0;
 }
-#h3{
+.kaf{
     margin: 0px;
     padding: 0 0 10px 0;
+    color: #ffffff;
+
 
 }
 .footer-wraper{
-    background: #4d4b4b;
+    background: #18181C;
     margin-top: 10%;
     display: flex;
     /* border-bottom: 2px solid #646262 */
+    justify-content: space-evenly;
+
     border-top: 2px solid #646262;
 
 }
 .logo{
-    margin: 2%;
+    margin: 1%;
+    /* max-height: 90px; */
 }
 .kaff-title{
     display: flex;
@@ -55,6 +58,8 @@ export default{
 .link-text{
     display: flex;
     align-items: center;
+    color: #ffffff;
+
 }
 
 </style>
