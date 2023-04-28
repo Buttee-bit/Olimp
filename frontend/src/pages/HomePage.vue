@@ -29,23 +29,58 @@
                 <h3>Программирование</h3>
             </div>
             <div class="text-block">
-                <p>будут затронуты такие</p>
-                <p>темы как ООП, алгоритмы, структуры данных архитектура</p>
+                будут затронуты такие
+                темы как ООП, алгоритмы, структуры данных архитектура
             </div>
         </div>
     </div>
+    <div class="second-block">
+        <div class="prog-table">
+            <div class="svg-elem">
+                <img src="../assets/program.svg" alt="">
+            </div>
+            <div class="title-prog">
+                <h3>Криптография</h3>
+            </div>
+            <div class="text-block">
+                Разберите программные решения, 
+                которые используются для 
+                шифрования данных при обмене 
+                информацией и её хранении
+            </div>
+        </div>
+    </div>
+    <div class="second-block">
+        <div class="prog-table">
+            <div class="svg-elem">
+                <img src="../assets/program.svg" alt="">
+            </div>
+            <div class="title-prog">
+                <h3>Базы данных</h3>
+            </div>
+            <div class="text-block">
+                Проектирование и оптимизирование 
+                баз данных. Эффективная работа с 
+                ними через код
+            </div>
+        </div>
+    </div>
+    <Footer_olimp/>
 </div>
 </template>
 
 
 
 <script>
+import Footer_olimp from '@/components/Footer_olimp.vue';
 import Header_olimp from '../components/Header_olimp.vue'
 import logo_olimp from '@/components/logo_olimp.vue';
+
 export default {
     components: {
         Header_olimp,
-        logo_olimp
+        logo_olimp,
+        Footer_olimp
     }
 };
 
@@ -67,7 +102,7 @@ p {
 	padding: 0 0 10px 0;
 }
 .color-head{
-    font-size: 26px;
+    font-size: 36px;
     background-image: linear-gradient(to bottom right, #ff8800, #ff3c00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -95,34 +130,54 @@ p {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
+    margin-top: 5%;
 }
 .prog-table{
     width: 70%;
-    border: 2px solid #b43f11;
+    /* border: 2px solid #b43f11; */
     display: table-column;
+    background-image: linear-gradient(to bottom right, #6b3e0a, #723605);
+    opacity: 0.8;
 
 }
 .svg-elem{
     
-    max-width: 72px;
-    max-height: 62px;
+    max-width: 60px;
+    max-height: 68px;
     display: flex;
     margin-top: 8px;
+    margin-left: 4%;
+
 
 }
 .title-prog{
     color: #ffffff;
+    margin-left: 5%;
+    font-size: 26px;
+
 }
 .text-block{
     color: #ffffff;
+    margin-left: 5%;
+    margin-bottom: 3%;
+
+}
+.thred-block{
+    display: block;
+    width: 70%;
+    justify-content: center;
+    align-items: flex-start;
+
 }
 br {
 margin: 1px;
 padding: 1%;
 }
 .app{
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
   background: #0a0a0a;
+
+  /* background: #d6b0b0; */
 }
 </style>
