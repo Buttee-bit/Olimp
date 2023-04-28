@@ -3,12 +3,14 @@
         <div class="name-site">vkaolimp</div>
         <div class="right-side">
             <div class="sigin-button-wrap">
-                <button class="sigin-button">
+                <button class="sigin-button"
+                @click="$router.push({name:'sign'})">
                     Войти
                 </button>
             </div>
             <div class="registration-button-wrap">
-                <button class="register-button">
+                <button class="register-button"
+                @click="$router.push({name:'registration'})">
                     Регистраиця
                 </button>
             </div>
@@ -24,7 +26,7 @@ export default{
 
 </script>
 
-<style>
+<style scoped>
 .header {
   width: 100%;
   height: 60px;
