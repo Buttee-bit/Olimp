@@ -26,8 +26,8 @@
             <p class="text-olimp">Архивные олимпиады</p>
         </div>
     </div>
-
-    <div class="olimpiad-card">
+    <div class="card-wrapper">
+        <div class="olimpiad-card">
         <div class="left-side">
             <div class="title-olimpiad">
                 <p>Олимпиада по программированию для 9-11 классов</p>
@@ -38,6 +38,22 @@
                 <div>Базы данных</div>
             </div>
         </div>
+        <div class="time">
+            <div class="date-t">
+                27.08.2023
+            </div>
+            <div class="hours">
+                13:00
+            </div>
+        </div>
+        <div class="buton-side">
+            <div class="button-wr">
+                <button>
+                    Записаться 
+                </button>
+            </div>
+        </div>
+    </div>
     </div>
 
 </template>
@@ -110,8 +126,42 @@ export default {
 .text-olimp{
     margin-left: 12px;
 }
+.card-wrapper{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 3%;
+}
 .olimpiad-card{
     color: #fafafa;
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    
+
+
+    /* border: 2px solid #b43f11; */
+    background: linear-gradient(to left, transparent, rgb(223, 95, 21));
+    opacity: 0.8;
+    border-radius: 7px;
+}
+.modyle-olimpiad{
+    display: flex;
+    font-size: 18px;
+    margin-left: 10px;
+    padding-left: 10px;
+    justify-content: space-evenly;
+
+}
+.left-side{
+    margin-left: 5%;
+}
+.buton-side{
+    margin-left: 5%;
+}
+.time{
+    margin-left: 5%;
+
 }
 </style>
 
