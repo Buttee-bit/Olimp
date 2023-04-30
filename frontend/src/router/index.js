@@ -8,7 +8,7 @@ import LCabinetPage from '../pages/LCabinetPage'
 
 const routes =  [ {path : '/',name:'start', component : HomePage },
                 {path : '/registration', name:'registration', component : RegisterPage },
-                {path : '/registration', name:'sign', component : SigInPage },
+                {path : '/sign', name:'sign', component : SigInPage },
                 {path : '/cabinet', name:'cabinet', component: LCabinetPage},
 ]
 

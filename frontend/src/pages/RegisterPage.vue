@@ -11,6 +11,7 @@
 
 <script>
 import SigInForm from '@/components/SigInForm.vue';
+
 export default {
     components:{
         SigInForm
