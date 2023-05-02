@@ -2,79 +2,81 @@
         <div class="header">
             <div class="name-site">vkaolimp</div>
         </div>
-    <div class="table-sigin">
-        <div class="logo-wrap">
-            <img 
-            src="../assets/academ.svg"
-            alt="" 
-            class="logo">
+    <form @submit.prevent="handlerSubmit">
+        <div class="table-sigin">
+            <div class="logo-wrap">
+                <img 
+                src="../assets/academ.svg"
+                alt="" 
+                class="logo">
+            </div>
+            <div class="reg-Oauth">
+                <button class="yandex">
+                    Войти через Яндекс 
+                </button>
+                <br>
+                <button class="google">
+                    Войти через Google 
+                </button>
+            </div>
+            <p class="else">------ или ------</p>
+            <div class="table-user-reg">
+                <div class="row-input">
+                    <div class="svg-elem">
+                        <img src="../assets/user_svg.svg" alt="" class="svg">
+                    </div>
+                    <input type="text" class="email"   v-model="user_data.email " placeholder="email">
+                </div>
+                <div class="row-input">
+                    <div class="svg-elem">
+                        <img src="../assets/user_svg.svg" alt="" class="svg">
+                    </div>
+                    <input type="password" class="password"  v-model="user_data.password " placeholder="password">
+                </div>
+                <div class="row-input">
+                    <div class="svg-elem">
+                        <img src="../assets/user_svg.svg" alt="" class="svg">
+                    </div>
+                    <input type="text" class="f_name"  v-model="user_data.f_name " placeholder="f_name">
+                </div>
+                <div class="row-input">
+                    <div class="svg-elem">
+                        <img src="../assets/user_svg.svg" alt="" class="svg">
+                    </div>
+                    <input type="text" class="Second_name"   v-model="user_data.Second_name " placeholder="Second_name">
+                </div>
+                <div class="row-input">
+                    <div class="svg-elem">
+                        <img src="../assets/user_svg.svg" alt="" class="svg">
+                    </div>
+                    <input type="text" class="Last_name"   v-model="user_data.Last_name " placeholder="Last_name">
+                </div>
+                <div class="row-input">
+                    <div class="svg-elem">
+                        <img src="../assets/city.svg" alt="" class="svg">
+                    </div>
+                    <input type="text" class="City"   v-model="user_data.City " placeholder="City">
+                </div>
+                <div class="row-input">
+                    <div class="svg-elem">
+                        <img src="../assets/school.svg" alt="" class="svg">
+                    </div>
+                    <input type="text" class="School"   v-model="user_data.School " placeholder="School">
+                </div>
+                <div class="row-input">
+                    <div class="svg-elem">
+                        <img src="../assets/class_.svg" alt="" class="svg">
+                    </div>
+                    <input type="text" class="Class_"   v-model="user_data.Class_ " placeholder="Class_">
+                </div>
+            </div>
+            <div class="button-res">
+                <button class="b-res" type="submit">Зарегистрироваться</button>
+            </div>
+            <p>Уже есть аккаунт?</p>
+            <p>Войти</p>
         </div>
-        <div class="reg-Oauth">
-            <button class="yandex">
-                Войти через Яндекс 
-            </button>
-            <br>
-            <button class="google">
-                Войти через Google 
-            </button>
-        </div>
-        <p class="else">------ или ------</p>
-        <div class="table-user-reg">
-            <div class="row-input">
-                <div class="svg-elem">
-                    <img src="../assets/user_svg.svg" alt="" class="svg">
-                </div>
-                <input type="text" class="email" v-model="email">
-            </div>
-            <div class="row-input">
-                <div class="svg-elem">
-                    <img src="../assets/user_svg.svg" alt="" class="svg">
-                </div>
-                <input type="password" class="password" v-model="password">
-            </div>
-            <div class="row-input">
-                <div class="svg-elem">
-                    <img src="../assets/user_svg.svg" alt="" class="svg">
-                </div>
-                <input type="text" class="f_name" v-model="f_name">
-            </div>
-            <div class="row-input">
-                <div class="svg-elem">
-                    <img src="../assets/user_svg.svg" alt="" class="svg">
-                </div>
-                <input type="text" class="Second_name"  v-model="Second_name">
-            </div>
-            <div class="row-input">
-                <div class="svg-elem">
-                    <img src="../assets/user_svg.svg" alt="" class="svg">
-                </div>
-                <input type="text" class="Last_name"  v-model="Last_name">
-            </div>
-            <div class="row-input">
-                <div class="svg-elem">
-                    <img src="../assets/city.svg" alt="" class="svg">
-                </div>
-                <input type="text" class="City"  v-model="City">
-            </div>
-            <div class="row-input">
-                <div class="svg-elem">
-                    <img src="../assets/school.svg" alt="" class="svg">
-                </div>
-                <input type="text" class="School"  v-model="School">
-            </div>
-            <div class="row-input">
-                <div class="svg-elem">
-                    <img src="../assets/class_.svg" alt="" class="svg">
-                </div>
-                <input type="text" class="Class_"  v-model="Class_">
-            </div>
-        </div>
-        <div class="button-res">
-            <button class="b-res" type="submit">Зарегистрироваться</button>
-        </div>
-        <p>Уже есть аккаунт?</p>
-        <p>Войти</p>
-    </div>
+</form>
 
 </template>
 
@@ -82,30 +84,30 @@
 export default{
     data(){
         return{
-            email:'',
-            password:'',
-            f_name:'',
-            Second_name:'',
-            Last_name:'',
-            City:'',
-            School:'',
-            Class_:'',
-            is_admin: null
+            user_data:{
+                email:'',
+                password:'',
+                f_name:'',
+                Second_name:'',
+                Last_name:'',
+                City:'',
+                School:'',
+                Class_:'',
+                is_admin: null
+            }
+            
         }
     }, 
     methods:{
-        register: function(){
-
+        handlerSubmit(e){
+            e.preventDefault()
+            console.log('submited');
         }
     }
 }
 
 </script>
-export default {
-    data(){
-        return{}
-    }
-};
+
 
 <style>
 .table-sigin{
