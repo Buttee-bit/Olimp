@@ -81,6 +81,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default{
     data(){
         return{
@@ -95,13 +96,21 @@ export default{
                 Class_:'',
                 is_admin: null
             }
-            
         }
     }, 
     methods:{
-        handlerSubmit(e){
-            e.preventDefault()
-            console.log('submited');
+        async handlerSubmit(){
+
+            const response = await axios.post('/auth/register',{
+                email: this.user_data.email,
+                password: this.user_data.password,
+                name: this.user_data.f_name + this.user_data.Second_name + this.user_data.Last_name,
+                city: this.user_data.City,
+                School: this.user_data.School,
+                class_: this.user_data.Class_,
+                role_id: 1
+            });
+            console.log(response)
         }
     }
 }
