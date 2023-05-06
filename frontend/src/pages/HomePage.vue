@@ -86,7 +86,10 @@ export default {
 
 </script>
 
-<style>
+<style >
+.home-pages{
+    background-color: #0a0a0a;
+}
 .text-olimpiad{
     display: grid;
     color: #ffffff;

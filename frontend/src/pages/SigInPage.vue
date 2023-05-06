@@ -1,117 +1,80 @@
 <template>
-        <div class="header">
-            <div class="name-site">vkaolimp</div>
-        </div>
-    <form @submit.prevent="handlerSubmit">
-        <div class="table-sigin">
-            <div class="logo-wrap">
-                <img 
-                src="../assets/academ.svg"
-                alt="" 
-                class="logo">
+    <div class="siginpage">
+            <Header_olimp/>
+        <form @submit.prevent="handlerSubmit">
+            <div class="table-sigin">
+                <div class="logo-wrap">
+                    <img 
+                    src="../assets/academ.svg"
+                    alt="" 
+                    class="logo">
+                </div>
+                <div class="reg-Oauth">
+                    <button class="yandex">
+                        Войти через Яндекс 
+                    </button>
+                    <br>
+                    <button class="google">
+                        Войти через Google 
+                    </button>
+                </div>
+                <p class="else">------ или ------</p>
+                <div class="table-user-reg">
+                    <div class="row-input">
+                        <div class="svg-elem">
+                            <img src="../assets/user_svg.svg" alt="" class="svg">
+                        </div>
+                        <input type="text" class="email"   v-model="user_data.username " placeholder="email">
+                    </div>
+                    <div class="row-input">
+                        <div class="svg-elem">
+                            <img src="../assets/user_svg.svg" alt="" class="svg">
+                        </div>
+                        <input type="password" class="password"  v-model="user_data.password " placeholder="password">
+                    </div>
+                    
+                </div>
+                <div class="button-res">
+                    <button class="b-res" type="submit">Зарегистрироваться</button>
+                </div>
+                <p>Уже есть аккаунт?</p>
+                <p>Войти</p>
             </div>
-            <div class="reg-Oauth">
-                <button class="yandex">
-                    Войти через Яндекс 
-                </button>
-                <br>
-                <button class="google">
-                    Войти через Google 
-                </button>
-            </div>
-            <p class="else">------ или ------</p>
-            <div class="table-user-reg">
-                <div class="row-input">
-                    <div class="svg-elem">
-                        <img src="../assets/user_svg.svg" alt="" class="svg">
-                    </div>
-                    <input type="text" class="email"   v-model="user_data.email " placeholder="email">
-                </div>
-                <div class="row-input">
-                    <div class="svg-elem">
-                        <img src="../assets/user_svg.svg" alt="" class="svg">
-                    </div>
-                    <input type="password" class="password"  v-model="user_data.password " placeholder="password">
-                </div>
-                <div class="row-input">
-                    <div class="svg-elem">
-                        <img src="../assets/user_svg.svg" alt="" class="svg">
-                    </div>
-                    <input type="text" class="f_name"  v-model="user_data.f_name " placeholder="f_name">
-                </div>
-                <div class="row-input">
-                    <div class="svg-elem">
-                        <img src="../assets/user_svg.svg" alt="" class="svg">
-                    </div>
-                    <input type="text" class="Second_name"   v-model="user_data.Second_name " placeholder="Second_name">
-                </div>
-                <div class="row-input">
-                    <div class="svg-elem">
-                        <img src="../assets/user_svg.svg" alt="" class="svg">
-                    </div>
-                    <input type="text" class="Last_name"   v-model="user_data.Last_name " placeholder="Last_name">
-                </div>
-                <div class="row-input">
-                    <div class="svg-elem">
-                        <img src="../assets/city.svg" alt="" class="svg">
-                    </div>
-                    <input type="text" class="City"   v-model="user_data.City " placeholder="City">
-                </div>
-                <div class="row-input">
-                    <div class="svg-elem">
-                        <img src="../assets/school.svg" alt="" class="svg">
-                    </div>
-                    <input type="text" class="School"   v-model="user_data.School " placeholder="School">
-                </div>
-                <div class="row-input">
-                    <div class="svg-elem">
-                        <img src="../assets/class_.svg" alt="" class="svg">
-                    </div>
-                    <input type="text" class="Class_"   v-model="user_data.Class_ " placeholder="Class_">
-                </div>
-            </div>
-            <div class="button-res">
-                <button class="b-res" type="submit">Зарегистрироваться</button>
-            </div>
-            <p>Уже есть аккаунт?</p>
-            <p>Войти</p>
-        </div>
-</form>
+    </form>
+</div>
 
 </template>
 
 <script>
 import axios from 'axios';
+import Header_olimp from '../components/Header_olimp.vue'
 export default{
+    components: {
+        Header_olimp,},
+
     data(){
         return{
             user_data:{
-                email:'',
+                username:'',
                 password:'',
-                f_name:'',
-                Second_name:'',
-                Last_name:'',
-                City:'',
-                School:'',
-                Class_:'',
-                is_admin: null
             }
         }
     }, 
     methods:{
+        
         async handlerSubmit(){
-
-            const response = await axios.post('/auth/register',{
-                email: this.user_data.email,
-                password: this.user_data.password,
-                name: this.user_data.f_name + this.user_data.Second_name + this.user_data.Last_name,
-                city: this.user_data.City,
-                School: this.user_data.School,
-                class_: this.user_data.Class_,
-                role_id: 1
-            });
-            console.log(response)
-        }
+            let axiosConfig = {
+                withCredentials: true,
+                headers: {
+                    'Accept': '*/*'}
+                }
+            const params = new URLSearchParams()
+            params.append('username', this.user_data.username,);
+            params.append('password', this.user_data.password);
+            const response = await axios.post('/auth/login',params,
+                axiosConfig)
+                console.log(response)
+    }
     }
 }
 
@@ -119,6 +82,10 @@ export default{
 
 
 <style>
+.siginpage{
+    width: 100%;
+    height: 100%;
+}
 .table-sigin{
     background-color: brown;
 

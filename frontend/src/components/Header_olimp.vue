@@ -43,6 +43,7 @@ export default{
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
+  margin-left: 15%;
   display: flex;
   align-items: center;
   justify-content: center;
