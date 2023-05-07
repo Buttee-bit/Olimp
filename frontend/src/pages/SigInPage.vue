@@ -50,6 +50,7 @@
 <script>
 import axios from 'axios';
 import Header_olimp from '../components/Header_olimp.vue'
+
 export default{
     components: {
         Header_olimp,},
@@ -77,7 +78,7 @@ export default{
                 axiosConfig)
                 console.log(response)
             this.$router.push({ name: 'cabinet' })
-    },
+    }
     }
 }
 
