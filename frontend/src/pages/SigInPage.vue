@@ -35,10 +35,12 @@
                     
                 </div>
                 <div class="button-res">
-                    <button class="b-res" type="submit">Зарегистрироваться</button>
+                    <button class="b-res" type="submit">Войти</button>
                 </div>
-                <p>Уже есть аккаунт?</p>
-                <p>Войти</p>
+                <p>Нет аккаунта ?</p>
+                <div class="button-sigin">
+                    <button class="b-res" @click="$router.push({ name: 'registration' })">Зарегистрироваться</button>
+                </div>
             </div>
     </form>
 </div>
@@ -74,7 +76,8 @@ export default{
             const response = await axios.post('/auth/login',params,
                 axiosConfig)
                 console.log(response)
-    }
+            this.$router.push({ name: 'cabinet' })
+    },
     }
 }
 
@@ -85,6 +88,10 @@ export default{
 .siginpage{
     width: 100%;
     height: 100%;
+}
+
+.button-sigin{
+
 }
 .table-sigin{
     background-color: brown;

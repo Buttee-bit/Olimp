@@ -1,7 +1,7 @@
 <template>
     <div class="register-page">
         <Header_olimp/>
-    <form @submit.prevent="handlerSubmit">
+    <form @submit.prevent="registerButton">
         <div class="table-sigin">
             <div class="logo-wrap">
                 <img 
@@ -73,7 +73,9 @@
                 <button class="b-res" type="submit">Зарегистрироваться</button>
             </div>
             <p>Уже есть аккаунт?</p>
-            <p>Войти</p>
+            <div class="button-sigin">
+                    <button class="b-res" @click="$router.push({ name: 'sign' })">Войти</button>
+            </div>
         </div>
     </form>
 </div>
@@ -106,7 +108,7 @@ data(){
     }
 }, 
 methods:{
-    async handlerSubmit(){
+    async registerButton(){
 
         const response = await axios.post('/auth/register',{
             email: this.user_data.email,
@@ -118,6 +120,7 @@ methods:{
             role_id: 1
         });
         console.log(response)
+        this.$router.push({ name: 'sign' })
     }
 }
 }

@@ -1,61 +1,62 @@
 <template>
-    <Header_olimp/>
-    <div class="wrapper-user">
-        <div class="user-card">
-            <div class="FIO">
-            Иванов Иван Иванович 
+    <div class="lk-cabinet">
+        <Header_olimp/>
+        <div class="wrapper-user">
+            <div class="user-card">
+                <div class="FIO">
+                Иванов Иван Иванович 
+            </div>
+            <div class="data-user">
+                <div class="info">
+                    Город: Санкт-петербург 
+                </div>
+                <div class="info">
+                    Школа: 215
+                </div>
+                <div class="info">
+                    Класс: 11
+                </div>
+            </div>
         </div>
-        <div class="data-user">
-            <div class="info">
-                Город: Санкт-петербург 
             </div>
-            <div class="info">
-                Школа: 215
+            
+        <div class="olimpiad-board">
+            <div class="p-olimpiad">
+                <p class="text-olimp">Доступные олимпиады</p>
+                <p class="text-olimp">Ваши Олимпиады</p>
+                <p class="text-olimp">Архивные олимпиады</p>
             </div>
-            <div class="info">
-                Класс: 11
+        </div>
+        <div class="card-wrapper">
+            <div class="olimpiad-card">
+            <div class="left-side">
+                <div class="title-olimpiad">
+                    <p>Олимпиада по программированию для 9-11 классов</p>
+                </div>
+                <div class="modyle-olimpiad">
+                    <div>Программирование</div>
+                    <div>Криптография</div>
+                    <div>Базы данных</div>
+                </div>
             </div>
+            <div class="time">
+                <div class="date-t">
+                    27.08.2023
+                </div>
+                <div class="hours">
+                    13:00
+                </div>
+            </div>
+            <div class="buton-side">
+                <div class="button-wr">
+                    <button>
+                        Записаться 
+                    </button>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
-        </div>
-        
-    <div class="olimpiad-board">
-        <div class="p-olimpiad">
-            <p class="text-olimp">Доступные олимпиады</p>
-            <p class="text-olimp">Ваши Олимпиады</p>
-            <p class="text-olimp">Архивные олимпиады</p>
-        </div>
-    </div>
-    <div class="card-wrapper">
-        <div class="olimpiad-card">
-        <div class="left-side">
-            <div class="title-olimpiad">
-                <p>Олимпиада по программированию для 9-11 классов</p>
-            </div>
-            <div class="modyle-olimpiad">
-                <div>Программирование</div>
-                <div>Криптография</div>
-                <div>Базы данных</div>
-            </div>
-        </div>
-        <div class="time">
-            <div class="date-t">
-                27.08.2023
-            </div>
-            <div class="hours">
-                13:00
-            </div>
-        </div>
-        <div class="buton-side">
-            <div class="button-wr">
-                <button>
-                    Записаться 
-                </button>
-            </div>
-        </div>
-    </div>
-    </div>
-
 </template>
 
 <script>
@@ -69,6 +70,14 @@ export default {
 </script>
 
 <style>
+.lk-cabinet{
+    width: 100%;
+  height: 100%;
+}
+#html{
+  width: 100%;
+  height: 100%;
+}
 .wrapper-user{
     color: #fafafa;
     display: flex;
