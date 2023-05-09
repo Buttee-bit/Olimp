@@ -28,33 +28,44 @@
             </div>
         </div>
         <div class="card-wrapper">
-            <div class="olimpiad-card">
-            <div class="left-side">
-                <div class="title-olimpiad">
-                    <p>Олимпиада по программированию для 9-11 классов</p>
+            <li
+            v-for="(product, title) in items"
+            :key="title"
+            >
+                <Olimpiad_Card
+                :title="product.title"
+                :time_end_data="product.time_end_data"
+                :time_end_hours="product.time_end_hours"
+                />
+
+            </li>
+            <!-- <div class="olimpiad-card">
+                <div class="left-side">
+                    <div class="title-olimpiad">
+                        <p>Олимпиада по программированию для 9-11 классов</p>
+                    </div>
+                    <div class="modyle-olimpiad">
+                        <div>Программирование</div>
+                        <div>Криптография</div>
+                        <div>Базы данных</div>
+                    </div>
                 </div>
-                <div class="modyle-olimpiad">
-                    <div>Программирование</div>
-                    <div>Криптография</div>
-                    <div>Базы данных</div>
+                <div class="time">
+                    <div class="date-t">
+                        27.08.2023
+                    </div>
+                    <div class="hours">
+                        13:00
+                    </div>
                 </div>
-            </div>
-            <div class="time">
-                <div class="date-t">
-                    27.08.2023
+                <div class="buton-side">
+                    <div class="button-wr">
+                        <button>
+                            Записаться 
+                        </button>
+                    </div>
                 </div>
-                <div class="hours">
-                    13:00
-                </div>
-            </div>
-            <div class="buton-side">
-                <div class="button-wr">
-                    <button>
-                        Записаться 
-                    </button>
-                </div>
-            </div>
-        </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -62,10 +73,12 @@
 <script>
 import axios from 'axios';
 import Header_olimp from '../components/Header_olimp.vue'
+import Olimpiad_Card from '@/components/Olimpiad_Card.vue';
 
 export default {
     components: {
         Header_olimp,
+        Olimpiad_Card 
     },
     data(){
         return{
@@ -74,7 +87,8 @@ export default {
                 city:'',
                 class_:'',
                 School :''
-            }
+            },
+            items:[]
         }
     },
     async mounted(){
@@ -87,7 +101,16 @@ export default {
                     this.user_data.city = response.data.city
                     this.user_data.class_ = response.data.class_
                     this.user_data.School = response.data.School
-})}
+})
+            await axios.get('olimpiads/all/not_end',
+            {
+                withCredentials: true           
+            }).then(response =>
+            {
+                this.items = response.data
+                console.log(this.items[0])
+            })
+}
         catch{
             this.$router.push({ name: 'start' })
         }       
@@ -159,37 +182,9 @@ export default {
     flex-wrap: nowrap;
     justify-content: center;
     margin-top: 3%;
+    flex-direction: column;
+    align-items: center;
 }
-.olimpiad-card{
-    color: #fafafa;
-    display: flex;
-    justify-content: center;
-    font-size: 28px;
-    
 
-
-    /* border: 2px solid #b43f11; */
-    background: linear-gradient(to left, transparent, rgb(223, 95, 21));
-    opacity: 0.8;
-    border-radius: 7px;
-}
-.modyle-olimpiad{
-    display: flex;
-    font-size: 18px;
-    margin-left: 10px;
-    padding-left: 10px;
-    justify-content: space-evenly;
-
-}
-.left-side{
-    margin-left: 5%;
-}
-.buton-side{
-    margin-left: 5%;
-}
-.time{
-    margin-left: 5%;
-
-}
 </style>
 

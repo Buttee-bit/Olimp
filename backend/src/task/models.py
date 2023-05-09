@@ -78,6 +78,9 @@ total_score = Table(
     Column('total_score', Integer)
 )
 
+# olimpiads_user_count = Table(
+
+# )
 
 # files_task = Table(
 #     'files_task',
