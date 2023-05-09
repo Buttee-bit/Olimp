@@ -62,6 +62,7 @@ export default{
     background: linear-gradient(to left, transparent, rgb(223, 95, 21));
     opacity: 0.8;
     border-radius: 7px;
+    margin-bottom: 3%;
 }
 .modyle-olimpiad{
     display: flex;

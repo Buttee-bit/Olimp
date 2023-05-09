@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="card-wrapper">
-            <li
+            <div
             v-for="(product, title) in items"
             :key="title"
             >
@@ -38,7 +38,7 @@
                 :time_end_hours="product.time_end_hours"
                 />
 
-            </li>
+            </div>
             <!-- <div class="olimpiad-card">
                 <div class="left-side">
                     <div class="title-olimpiad">
