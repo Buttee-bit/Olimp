@@ -6,6 +6,7 @@ from .auth.schemas import UserRead, UserCreate
 from .task.router import router as task_router
 from .auth.router import router as auth_router
 # from operations.router import router as router_operation
+from .olimpiads.router import router as olimp_router 
 
 app = FastAPI(
     title="Olimpiad App"
@@ -27,3 +28,4 @@ app.add_middleware(
 
 app.include_router(task_router)
 app.include_router(auth_router)
+app.include_router()

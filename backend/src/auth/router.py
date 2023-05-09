@@ -1,10 +1,13 @@
+import json
 from fastapi import APIRouter, Depends
 import fastapi_users
-
-from ..auth.models import User
-from .schemas import UserRead,UserCreate
+from sqlalchemy.ext.asyncio import AsyncSession
+from ..auth.models import user
+from ..database import get_async_session
+from .schemas import UserRead, UserCreate
 from .base_config import auth_backend, fastapi_users
-
+from sqlalchemy import select
+from fastapi.responses import JSONResponse
 router = APIRouter(
     prefix = '/lk',
     tags = ['lk']
@@ -23,5 +26,10 @@ router.include_router(
 current_user = fastapi_users.current_user()
 
 @router.get('/personalCabinet')
-def protected_lk(user: User = Depends(current_user)):
-    return f'Hi: {user.email} you register at { user.register_at}' 
+async def protected_lk(user_pol: user = Depends(current_user), session: AsyncSession = Depends(get_async_session)):
+    return JSONResponse(content={
+        'name' : user_pol.name,
+        'city' : user_pol.city,
+        'class_' : user_pol.class_,
+        'School' : user_pol.School
+    })

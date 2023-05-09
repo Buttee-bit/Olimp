@@ -110,10 +110,10 @@ data(){
 methods:{
     async registerButton(){
 
-        const response = await axios.post('/auth/register',{
+        const response = await axios.post('/lk/register',{
             email: this.user_data.email,
             password: this.user_data.password,
-            name: this.user_data.f_name + this.user_data.Second_name + this.user_data.Last_name,
+            name: this.user_data.f_name + ' ' + this.user_data.Second_name + ' ' + this.user_data.Last_name,
             city: this.user_data.City,
             School: this.user_data.School,
             class_: this.user_data.Class_,

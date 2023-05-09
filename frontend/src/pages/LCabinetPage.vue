@@ -4,17 +4,17 @@
         <div class="wrapper-user">
             <div class="user-card">
                 <div class="FIO">
-                Иванов Иван Иванович 
+                {{ user_data.name }}
             </div>
             <div class="data-user">
                 <div class="info">
-                    Город: Санкт-петербург 
+                    Город: {{ user_data.city }} 
                 </div>
                 <div class="info">
-                    Школа: 215
+                    Школа: {{ user_data.School }} 
                 </div>
                 <div class="info">
-                    Класс: 11
+                    Класс: {{ user_data.class_ }} 
                 </div>
             </div>
         </div>
@@ -60,24 +60,43 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Header_olimp from '../components/Header_olimp.vue'
 
 export default {
     components: {
         Header_olimp,
-    }
+    },
+    data(){
+        return{
+            user_data:{
+                name:'',
+                city:'',
+                class_:'',
+                School :''
+            }
+        }
+    },
+    async mounted(){
+        try {
+            await axios.get('lk/personalCabinet',
+                {
+                withCredentials: true
+                }) .then(response => { 
+                    this.user_data.name = response.data.name
+                    this.user_data.city = response.data.city
+                    this.user_data.class_ = response.data.class_
+                    this.user_data.School = response.data.School
+})}
+        catch{
+            this.$router.push({ name: 'start' })
+        }       
+}
+
 };
 </script>
 
 <style>
-.lk-cabinet{
-    width: 100%;
-  height: 100%;
-}
-#html{
-  width: 100%;
-  height: 100%;
-}
 .wrapper-user{
     color: #fafafa;
     display: flex;

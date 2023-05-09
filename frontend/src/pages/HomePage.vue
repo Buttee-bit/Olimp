@@ -15,7 +15,8 @@
         </div>
 
         <div class="buton-start-wrapper">
-            <button class="buton-start">
+            <button class="buton-start"
+            @click="$router.push({name:'registration'})">
                 Принять участие
             </button>
         </div>

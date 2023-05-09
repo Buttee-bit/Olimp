@@ -74,7 +74,7 @@ export default{
             const params = new URLSearchParams()
             params.append('username', this.user_data.username,);
             params.append('password', this.user_data.password);
-            const response = await axios.post('/auth/login',params,
+            const response = await axios.post('/lk/login',params,
                 axiosConfig)
                 console.log(response)
             this.$router.push({ name: 'cabinet' })
