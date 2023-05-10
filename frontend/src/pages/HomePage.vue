@@ -123,7 +123,6 @@ p {
 .buton-start{
     color: #0a0a0a;
     background-color: #d84d16;
-    /* width: 68px; */
     font-size: 20px;
     height: 60px;
     border: 2px solid #612107;
@@ -138,7 +137,6 @@ p {
 }
 .prog-table{
     width: 70%;
-    /* border: 2px solid #b43f11; */
     display: table-column;
     background: linear-gradient(to left, transparent, rgb(223, 95, 21));
     opacity: 0.8;
@@ -181,10 +179,6 @@ margin: 1px;
 padding: 1%;
 }
 .app{
-  /* width: 100vw;
-  height: 100vh; */
   background: #0a0a0a;
-
-  /* background: #d6b0b0; */
 }
 </style>

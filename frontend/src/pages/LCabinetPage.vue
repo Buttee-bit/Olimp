@@ -17,14 +17,20 @@
                     Класс: {{ user_data.class_ }} 
                 </div>
             </div>
-        </div>
             </div>
-            
+        </div>
         <div class="olimpiad-board">
             <div class="p-olimpiad">
-                <p class="text-olimp">Доступные олимпиады</p>
-                <p class="text-olimp">Ваши Олимпиады</p>
-                <p class="text-olimp">Архивные олимпиады</p>
+                <button class="text-olimp"
+                v-bind:class="{ 'btn-active': isActive1 }"
+                @click="getDataActualOlimp(isActive1),isActive1 = !isActive1">
+                Доступные олимпиады</button>
+                <button class="text-olimp"
+                v-bind:class="{ 'btn-active': isActive2 }" 
+                @click="isActive2 = !isActive2">Ваши Олимпиады</button>
+                <button class="text-olimp"
+                v-bind:class="{ 'btn-active': isActive3 }" 
+                @click="getDataEndOlimp(isActive3),isActive3 = !isActive3">Архивные олимпиады</button>
             </div>
         </div>
         <div class="card-wrapper">
@@ -37,35 +43,8 @@
                 :time_end_data="product.time_end_data"
                 :time_end_hours="product.time_end_hours"
                 />
-
             </div>
-            <!-- <div class="olimpiad-card">
-                <div class="left-side">
-                    <div class="title-olimpiad">
-                        <p>Олимпиада по программированию для 9-11 классов</p>
-                    </div>
-                    <div class="modyle-olimpiad">
-                        <div>Программирование</div>
-                        <div>Криптография</div>
-                        <div>Базы данных</div>
-                    </div>
-                </div>
-                <div class="time">
-                    <div class="date-t">
-                        27.08.2023
-                    </div>
-                    <div class="hours">
-                        13:00
-                    </div>
-                </div>
-                <div class="buton-side">
-                    <div class="button-wr">
-                        <button>
-                            Записаться 
-                        </button>
-                    </div>
-                </div>
-            </div> -->
+            
         </div>
     </div>
 </template>
@@ -88,6 +67,11 @@ export default {
                 class_:'',
                 School :''
             },
+
+            isActive1:false,
+            isActive2:false,
+            isActive3:false,
+
             items:[]
         }
     },
@@ -102,18 +86,48 @@ export default {
                     this.user_data.class_ = response.data.class_
                     this.user_data.School = response.data.School
 })
-            await axios.get('olimpiads/all/not_end',
-            {
-                withCredentials: true           
-            }).then(response =>
-            {
-                this.items = response.data
-                console.log(this.items[0])
-            })
 }
         catch{
             this.$router.push({ name: 'start' })
         }       
+},
+methods:{
+    getDataActualOlimp(isActive1){
+        if(!isActive1){
+        axios.get('olimpiads/all/not_end',
+            {
+                withCredentials: true           
+            }).then(response => {
+          this.items = response.data;
+          return true
+        })
+        .catch(error => {
+          console.error(error);
+        })
+        }
+        else{
+            this.items=[]
+        }
+    },
+    getDataEndOlimp(isActive3){
+        if(!isActive3){
+            axios.get('olimpiads/all/end',
+            {
+                withCredentials: true           
+            }).then(response => {
+          this.items = response.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+        }
+        else{
+            this.items=[]
+        }
+        
+    },
+
+
 }
 
 };
@@ -152,7 +166,6 @@ export default {
 
 }
 .info{
-    /* margin-right: 15%; */
     display: contents;
     padding-right: 40px
 
@@ -161,9 +174,6 @@ export default {
 .olimpiad-board{
     color: #fafafa;
     margin-top: 5%;
-
-        /* background-color: gray; */
-
     display: grid;
     width: 72%;
     padding-right: 10%;
@@ -185,6 +195,9 @@ export default {
     flex-direction: column;
     align-items: center;
 }
-
+.btn-active {
+  background-color: #f00;
+  color: #fff;
+}
 </style>
 

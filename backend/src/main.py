@@ -20,7 +20,7 @@ app.add_middleware(
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["Content-Type","Set-Cookie"], # include additional headers as per the application demand
+    allow_headers=["Content-Type","Set-Cookie"], 
 )
 
 app.include_router(task_router)

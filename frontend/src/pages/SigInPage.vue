@@ -43,6 +43,8 @@
                 </div>
             </div>
     </form>
+    <Footer_olimp/>
+
 </div>
 
 </template>
@@ -50,10 +52,13 @@
 <script>
 import axios from 'axios';
 import Header_olimp from '../components/Header_olimp.vue'
+import Footer_olimp from '@/components/Footer_olimp.vue';
 
 export default{
     components: {
-        Header_olimp,},
+        Header_olimp,
+        Footer_olimp
+    },
 
     data(){
         return{
@@ -91,17 +96,20 @@ export default{
     height: 100%;
 }
 
-.button-sigin{
+/* .button-sigin{
 
-}
+} */
 .table-sigin{
-    background-color: brown;
+    background-color: rgb(219, 123, 13);
 
     justify-content: center;
     justify-items: baseline;
     align-content: center;
     flex-wrap: wrap;
     margin: 30%;
+    border-radius: 3%;
+    max-width: 27%
+
 }
 .reg-Oauth{
     display: grid;
@@ -122,7 +130,6 @@ export default{
 .else{
     display: flex;
     margin-top: 4.2%;
-    /* align-content: revert; */
     justify-content: center;
 }
 .table-user-reg{
@@ -134,10 +141,19 @@ export default{
 }
 .row-input{
     display: flex;
-    align-items: flex-end;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    margin-bottom: 10%;
+    justify-content: center;
 }
 .svg-elem{
     width: 21px;
     height: 21px;
+}
+.button-res{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
 }
 </style>

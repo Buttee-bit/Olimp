@@ -10,7 +10,8 @@ from ..database import get_async_session
 from ..auth.base_config import fastapi_users
 
 from ..auth.models import User
-from ..task.models import olimpiad
+from .models import olimpiad
+
 current_user = fastapi_users.current_user()
 
 
@@ -27,7 +28,6 @@ async def protected_get_olimpiads_not_end(user: User = Depends(current_user) ,se
     data = res.fetchall()
     list_data = []
     for olimpiad_ in data:
-        print(olimpiad_[1])
         list_data.append({
             'title':olimpiad_[1],
             'time_end_data':olimpiad_[4].strftime("%d.%m.%Y"),
@@ -42,7 +42,6 @@ async def protect_get_olimpiads_end(user: User = Depends(current_user), session:
     data = res.fetchall()
     list_data = []
     for olimpiad_ in data:
-        print(olimpiad_[1])
         list_data.append({
             'title':olimpiad_[1],
             'time_end_data':olimpiad_[4].strftime("%d.%m.%Y"),

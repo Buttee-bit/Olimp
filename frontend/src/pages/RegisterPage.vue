@@ -78,17 +78,21 @@
             </div>
         </div>
     </form>
+    <Footer_olimp/>
 </div>
 </template>
 
 <script>
 import axios from 'axios';
 import Header_olimp from '../components/Header_olimp.vue'
+import Footer_olimp from '@/components/Footer_olimp.vue';
 
 export default{
 
     components: {
         Header_olimp,
+        Footer_olimp
+
         // logo_olimp,
         // Footer_olimp
     },
@@ -133,49 +137,49 @@ methods:{
     background-color: black;
 }
 .table-sigin{
-background-color: brown;
-
-justify-content: center;
-justify-items: baseline;
-align-content: center;
-flex-wrap: wrap;
-margin: 30%;
+    background-color: rgb(218, 86, 9);
+    justify-content: center;
+    justify-items: baseline;
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 30%;
 }
 .reg-Oauth{
-display: grid;
-margin-top: 4.2%;
-align-content: stretch;
-justify-content: space-around;
-align-items: end;
+    display: grid;
+    margin-top: 4.2%;
+    align-content: stretch;
+    justify-content: space-around;
+    align-items: end;
 
 }
 .yandex{
-font-size: 20px;
+    font-size: 20px;    
 
 }
 .google{
-font-size: 20px;
+    font-size: 20px;
 
 }
 .else{
-display: flex;
-margin-top: 4.2%;
-/* align-content: revert; */
-justify-content: center;
+    display: flex;
+    margin-top: 4.2%;
+    /* align-content: revert; */
+    justify-content: center;
 }
 .table-user-reg{
-display: grid;
-margin-top: 4.2%;
-align-content: baseline;
-justify-content: center;
-align-items: flex-end;
+    display: grid;
+    margin-top: 4.2%;
+    align-content: baseline;
+    justify-content: center;
+    align-items: flex-end;
+
 }
 .row-input{
-display: flex;
-align-items: flex-end;
+    display: flex;
+    align-items: flex-end;
 }
 .svg-elem{
-width: 21px;
-height: 21px;
+    width: 21px;
+    height: 21px;
 }
 </style>
