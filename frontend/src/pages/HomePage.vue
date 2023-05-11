@@ -37,9 +37,7 @@
     </div>
     <div class="second-block">
         <div class="prog-table">
-            <!-- <div class="svg-elem">
-                <img src="../assets/cryptography.svg" alt="">
-            </div> -->
+
             <div class="title-prog">
                 <h3>Криптография</h3>
             </div>

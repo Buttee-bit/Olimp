@@ -4,24 +4,37 @@
         <div class="right-side">
             <div class="sigin-button-wrap">
                 <button class="sigin-button"
-                @click="$router.push({name:'sign'})">
+                @click="$router.push({name:'sign'})"
+                v-if="this.$route.name == 'start'">
                     Войти
+                    
                 </button>
             </div>
-            <div class="registration-button-wrap">
-                <button class="register-button"
-                @click="$router.push({name:'registration'})">
-                    Регистраиця
-                </button>
-            </div>
+            <LogOut
+            v-if="!isSatartPage && !isRegisterPage && !isSigInpage"
+            />
         </div>
     </div>
 
 </template>
 
 <script>
+import LogOut from './LogOut.vue';
+
 export default{
-    name: 'Header_olimp'
+    name: 'Header_olimp',
+    components:{LogOut},
+    computed:{
+        isSatartPage(){
+            return this.$route.name == 'start'
+        },
+        isRegisterPage(){
+            return this.$route.name == 'registration'
+        },
+        isSigInpage(){
+            return this.$route.name == 'sign'
+        }
+    }
 }
 
 </script>
