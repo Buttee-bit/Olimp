@@ -39,6 +39,7 @@
             :key="title"
             >
                 <Olimpiad_Card
+                :id_olimp = "product.id_olimp"
                 :title="product.title"
                 :time_end_data="product.time_end_data"
                 :time_end_hours="product.time_end_hours"
@@ -92,13 +93,14 @@ export default {
         }       
 },
 methods:{
-    getDataActualOlimp(isActive1){
+    async getDataActualOlimp(isActive1){
         if(!isActive1){
-        axios.get('olimpiads/all/not_end',
+        await axios.get('olimpiads/all/not_end',
             {
                 withCredentials: true           
             }).then(response => {
           this.items = response.data;
+          console.error(response.data);
           return true
         })
         .catch(error => {
@@ -109,9 +111,9 @@ methods:{
             this.items=[]
         }
     },
-    getDataEndOlimp(isActive3){
+    async getDataEndOlimp(isActive3){
         if(!isActive3){
-            axios.get('olimpiads/all/end',
+            await axios.get('olimpiads/all/end',
             {
                 withCredentials: true           
             }).then(response => {

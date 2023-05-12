@@ -14,3 +14,11 @@ olimpiad = Table(
     Column("time_end", TIMESTAMP, default = ((datetime.utcnow()) + timedelta(days=2))),
     Column("work_time", Integer, default = 7200)
 )
+
+users_in_olimpiad = Table(
+    'users_in_olimpiad',
+    metadata,
+    Column("id", Integer, primary_key=True),
+    Column('id_olimpiad', Integer, ForeignKey(olimpiad.c.id)),
+    Column('user_id', Integer, ForeignKey(user.c.id))
+)

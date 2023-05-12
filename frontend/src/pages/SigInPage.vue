@@ -24,13 +24,13 @@
                         <div class="svg-elem">
                             <img src="../assets/user_svg.svg" alt="" class="svg">
                         </div>
-                        <input type="text" class="email"   v-model="user_data.username " placeholder="email">
+                        <input type="text" class="email"   v-model="user_data.username " placeholder="Почта">
                     </div>
                     <div class="row-input">
                         <div class="svg-elem">
                             <img src="../assets/user_svg.svg" alt="" class="svg">
                         </div>
-                        <input type="password" class="password"  v-model="user_data.password " placeholder="password">
+                        <input type="password" class="password"  v-model="user_data.password " placeholder="Пароль">
                     </div>
                     
                 </div>
@@ -153,7 +153,17 @@ export default{
 .button-res{
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
-    align-items: stretch;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.b-res{
+    height: 41px;
+    width: 129px;
+    color: #fafafa;
+    background: linear-gradient(to top, #be8301, #ff4800);
+    border: 2px solid #b43f11;
+    background-color: #b43f11;
+    border-radius: 5px;
 }
 </style>

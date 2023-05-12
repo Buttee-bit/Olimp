@@ -24,58 +24,61 @@
                     <div class="svg-elem">
                         <img src="../assets/user_svg.svg" alt="" class="svg">
                     </div>
-                    <input type="text" class="email"   v-model="user_data.email " placeholder="email">
+                    <input type="text" class="email"   v-model="user_data.email " placeholder="Почта">
                 </div>
                 <div class="row-input">
                     <div class="svg-elem">
                         <img src="../assets/user_svg.svg" alt="" class="svg">
                     </div>
-                    <input type="password" class="password"  v-model="user_data.password " placeholder="password">
+                    <input type="password" class="password"  v-model="user_data.password " placeholder="Пароль">
                 </div>
                 <div class="row-input">
                     <div class="svg-elem">
                         <img src="../assets/user_svg.svg" alt="" class="svg">
                     </div>
-                    <input type="text" class="f_name"  v-model="user_data.f_name " placeholder="f_name">
+                    <input type="text" class="f_name"  v-model="user_data.f_name " placeholder="Фамилия">
                 </div>
                 <div class="row-input">
                     <div class="svg-elem">
                         <img src="../assets/user_svg.svg" alt="" class="svg">
                     </div>
-                    <input type="text" class="Second_name"   v-model="user_data.Second_name " placeholder="Second_name">
+                    <input type="text" class="Second_name"   v-model="user_data.Second_name " placeholder="Отчество">
                 </div>
                 <div class="row-input">
                     <div class="svg-elem">
                         <img src="../assets/user_svg.svg" alt="" class="svg">
                     </div>
-                    <input type="text" class="Last_name"   v-model="user_data.Last_name " placeholder="Last_name">
+                    <input type="text" class="Last_name"   v-model="user_data.Last_name " placeholder="Имя">
                 </div>
                 <div class="row-input">
                     <div class="svg-elem">
                         <img src="../assets/city.svg" alt="" class="svg">
                     </div>
-                    <input type="text" class="City"   v-model="user_data.City " placeholder="City">
+                    <input type="text" class="City"   v-model="user_data.City " placeholder="Город">
                 </div>
                 <div class="row-input">
                     <div class="svg-elem">
                         <img src="../assets/school.svg" alt="" class="svg">
                     </div>
-                    <input type="text" class="School"   v-model="user_data.School " placeholder="School">
+                    <input type="text" class="School"   v-model="user_data.School " placeholder="Школа">
                 </div>
                 <div class="row-input">
                     <div class="svg-elem">
                         <img src="../assets/class_.svg" alt="" class="svg">
                     </div>
-                    <input type="text" class="Class_"   v-model="user_data.Class_ " placeholder="Class_">
+                    <input type="text" class="Class_"   v-model="user_data.Class_ " placeholder="Класс">
                 </div>
             </div>
             <div class="button-res">
                 <button class="b-res" type="submit">Зарегистрироваться</button>
             </div>
-            <p>Уже есть аккаунт?</p>
-            <div class="button-sigin">
-                    <button class="b-res" @click="$router.push({ name: 'sign' })">Войти</button>
+            <div class="alternative">
+                <p>Уже есть аккаунт?</p>
+                <div class="button-alternative">
+                    <div class="button-alternative" @click="$router.push({ name: 'sign' })">Войти</div>
+                </div>
             </div>
+            
         </div>
     </form>
     <Footer_olimp/>
@@ -137,12 +140,13 @@ methods:{
     background-color: black;
 }
 .table-sigin{
-    background-color: rgb(218, 86, 9);
+    background-color: rgb(219, 123, 13);
     justify-content: center;
     justify-items: baseline;
     align-content: center;
     flex-wrap: wrap;
-    margin: 30%;
+    border-radius: 3%;
+    min-width: 223px;
 }
 .reg-Oauth{
     display: grid;
@@ -167,11 +171,16 @@ methods:{
     justify-content: center;
 }
 .table-user-reg{
-    display: grid;
+    /* display: grid;
     margin-top: 4.2%;
     align-content: baseline;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-end; */
+    display: grid; 
+    margin-top: 4.2%;
+    align-content: stretch;
+    justify-content: space-around;
+    align-items: end;
 
 }
 .row-input{
@@ -182,4 +191,11 @@ methods:{
     width: 21px;
     height: 21px;
 }
+.alternative{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
 </style>

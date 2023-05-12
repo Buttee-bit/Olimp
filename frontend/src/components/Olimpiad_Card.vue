@@ -20,7 +20,8 @@
         </div>
         <div class="buton-side">
             <div class="button-wr">
-                <button>
+                <button
+                @click="RegisterOlimpiad()">
                     Записаться 
                 </button>
             </div>
@@ -29,9 +30,14 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default{
     name: 'Olimpiad_card',
     props:{
+        id_olimp:{
+            type: Number,
+        },
         title:{
             type: String,
             default: 'Олимпиада'
@@ -45,6 +51,22 @@ export default{
             default:''
         },
     },
+    methods:{
+        async RegisterOlimpiad(){
+            let axiosConfig = {
+                withCredentials: true,
+                headers: {
+                    'Accept': '*/*'}
+                }
+            await axios.post('olimpiads/register/olimpiad',
+            {
+                "id":this.id_olimp
+            },axiosConfig).then((response)=>{
+                console.log(response.data)
+            })
+        }
+
+    }
 }
 
 </script>
