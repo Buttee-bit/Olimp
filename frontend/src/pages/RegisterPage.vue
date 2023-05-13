@@ -42,13 +42,13 @@
                     <div class="svg-elem">
                         <img src="../assets/user_svg.svg" alt="" class="svg">
                     </div>
-                    <input type="text" class="Second_name"   v-model="user_data.Second_name " placeholder="Отчество">
+                    <input type="text" class="Second_name"   v-model="user_data.Second_name " placeholder="Имя">
                 </div>
                 <div class="row-input">
                     <div class="svg-elem">
                         <img src="../assets/user_svg.svg" alt="" class="svg">
                     </div>
-                    <input type="text" class="Last_name"   v-model="user_data.Last_name " placeholder="Имя">
+                    <input type="text" class="Last_name"   v-model="user_data.Last_name " placeholder="Отчество">
                 </div>
                 <div class="row-input">
                     <div class="svg-elem">
