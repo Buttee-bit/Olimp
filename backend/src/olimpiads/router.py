@@ -26,15 +26,36 @@ current_user = fastapi_users.current_user()
 async def protected_get_olimpiads_not_end(user: User = Depends(current_user) ,session: AsyncSession = Depends(get_async_session)):
     stmt = select(olimpiad).where(olimpiad.c.time_end > datetime.datetime.utcnow())
     res = await session.execute(stmt)
-    data = res.fetchall()
+    user_in_olimp = select(users_in_olimpiad).where(users_in_olimpiad.c.user_id == user.id)
+    res_user_in_olimp = await session.execute(user_in_olimp) # Очень слабое место в коде 
+    data_user_in_olimp = res_user_in_olimp.fetchall()
+    # print(data_user_in_olimp)
+    buffer = [] 
+    for users_olimp in data_user_in_olimp:
+        buffer.append({
+            'id_olimp':users_olimp[1],
+            'id_user': users_olimp[2]
+        })
+    # print(buffer)
     list_data = []
+
+    data = res.fetchall()
     for olimpiad_ in data:
-        print(olimpiad_[0])
+
+        try:
+            print(buffer)
+            for i in buffer:
+                print(i['id_olimp'] == olimpiad_[0])
+                if i['id_olimp'] == olimpiad_[0]:
+                    flag = True
+        except:
+            flag = False
         list_data.append({
             'id_olimp':olimpiad_[0],
             'title':olimpiad_[1],
             'time_end_data':olimpiad_[4].strftime("%d.%m.%Y"),
             'time_end_hours':olimpiad_[4].strftime("%H:%M"),
+            'flag_user_in_olimp':flag
         })
     return JSONResponse(content=list_data)
 
@@ -51,6 +72,7 @@ async def protected_get_you_olimp(user: User = Depends(current_user) ,session: A
             'title':olimpiad_[1],
             'time_end_data':olimpiad_[4].strftime("%d.%m.%Y"),
             'time_end_hours':olimpiad_[4].strftime("%H:%M"),
+            'flag_user_in_olimp': True
         })
     return JSONResponse(content=list_data)
 

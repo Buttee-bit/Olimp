@@ -9,7 +9,7 @@ SECRET = 'olimpiad_forever' # Поставить в файл .env
 
 
 def get_jwt_strategy() -> JWTStrategy:
-    return JWTStrategy(secret=SECRET, lifetime_seconds=3600)
+    return JWTStrategy(secret=SECRET, lifetime_seconds=7200)
 
 auth_backend = AuthenticationBackend(
     name="jwt",

@@ -50,6 +50,10 @@ export default{
             type: String,
             default:''
         },
+        flag_user_in_olimp:{
+            type: Boolean,
+            default: false
+        }
     },
     methods:{
         async RegisterOlimpiad(){

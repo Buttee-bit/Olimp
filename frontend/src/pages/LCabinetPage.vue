@@ -23,14 +23,14 @@
             <div class="p-olimpiad">
                 <button class="text-olimp"
                 v-bind:class="{ 'btn-active': isActive1 }"
-                @click="getDataActualOlimp(isActive1),isActive1 = !isActive1">
+                @click="getDataActualOlimp(isActive1), isActive1 = !isActive1">
                 Доступные олимпиады</button>
                 <button class="text-olimp"
                 v-bind:class="{ 'btn-active': isActive2 }" 
-                @click="isActive2 = !isActive2">Ваши Олимпиады</button>
+                @click="getDataYourOlimp(isActive2), isActive2 = !isActive2">Ваши Олимпиады</button>
                 <button class="text-olimp"
                 v-bind:class="{ 'btn-active': isActive3 }" 
-                @click="getDataEndOlimp(isActive3),isActive3 = !isActive3">Архивные олимпиады</button>
+                @click="getDataEndOlimp(isActive3), isActive3 = !isActive3">Архивные олимпиады</button>
             </div>
         </div>
         <div class="card-wrapper">
@@ -43,6 +43,7 @@
                 :title="product.title"
                 :time_end_data="product.time_end_data"
                 :time_end_hours="product.time_end_hours"
+                :flag_user_in_olimp="product.flag_user_in_olimp"
                 />
             </div>
             
@@ -96,6 +97,24 @@ methods:{
     async getDataActualOlimp(isActive1){
         if(!isActive1){
         await axios.get('olimpiads/all/not_end',
+            {
+                withCredentials: true           
+            }).then(response => {
+          this.items = response.data;
+          console.error(response.data);
+          return true
+        })
+        .catch(error => {
+          console.error(error);
+        })
+        }
+        else{
+            this.items=[]
+        }
+    },
+    async getDataYourOlimp(isActive2){
+        if(!isActive2){
+        await axios.get('olimpiads/all/you_olimp',
             {
                 withCredentials: true           
             }).then(response => {
