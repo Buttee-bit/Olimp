@@ -85,7 +85,7 @@ export default {
 
 </script>
 
-<style >
+<style scoped>
 .home-pages{
     background-color: #0a0a0a;
 }
