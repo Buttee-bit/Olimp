@@ -3,8 +3,9 @@ import { createApp } from "vue";
 import App from './App.vue'
 import VueCookies from 'vue3-cookies'
 import router from './router/index'
-import './axios'
 import store from "./store/index";
+
+import './axios'
 
 const app = createApp(App);
 app.use(router);

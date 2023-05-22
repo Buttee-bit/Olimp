@@ -1,4 +1,15 @@
 <template>
+    <ModalWindow
+                v-if="isModalOpen"
+                title ='Очень важна информация'
+                :id_olimpiad = "id_olimp"
+
+                @close="isModalOpen = false"
+                >
+                <li>Для участия в олимпиаде необходимо предварительно зарегистрироваться[ на сайте олимпиады] и вступить в telegram-канал, предназначенный для информирования конкурсантов.</li>
+                <li>Конкурсантам предлагается комплект заданий , включающий в себя вопросы с развернутыми, однозначными и множественными ответами . Оценке подлежит правильность и скорость выполнения заданий. [ можно ещё написать тут про баллы ]</li>
+                <li>После окончания испытаний результат конкурсанта фиксируется в общем рейтинге . По завершении Олимпиады каждому участнику высылается на личную почту сертификат участника, а победителям и призёрам- сертификаты победителя и призера соответственно</li>
+    </ModalWindow>
     <div class="olimpiad-card">
         <div class="left-side">
             <div class="title-olimpiad">
@@ -20,10 +31,14 @@
         </div>
         <div class="buton-side">
             <div class="button-wr" v-if="flag_user_in_olimp == 0">
-                <button
+                <!-- <button
                 @click="RegisterOlimpiad()">
                     Записаться 
+                </button> -->
+                <button @click="OpenModal()">
+                Регистрация
                 </button>
+
             </div>
             <div class="button-wr" v-if="flag_user_in_olimp == 1">
                 <button
@@ -43,9 +58,18 @@
 
 <script>
 import axios from 'axios';
+import ModalWindow from './ModalWindow.vue';
 
 export default{
     name: 'Olimpiad_card',
+    components:{
+    ModalWindow,
+},
+data() {
+    return {
+      isModalOpen: false,
+    }
+  },
     props:{
         id_olimp:{
             type: Number,
@@ -82,31 +106,22 @@ export default{
             })
         },
         async StartOlimpiad(){
-            const params = new URLSearchParams()
-            params.append("id", this.id_olimp);
-            await axios.get('task/task',{withCredentials: true},
-            params
-                )
-                .then((response)=>{
-                    console.log(response)
+            axios.get(`task/task/${Number(this.id_olimp)}`, {
+                withCredentials: true
                 })
-//             await axios.get('lk/personalCabinet',
-//                 {
-//                 withCredentials: true
-//                 }) .then(response => { 
-//                     this.user_data.name = response.data.name
-//                     this.user_data.city = response.data.city
-//                     this.user_data.class_ = response.data.class_
-//                     this.user_data.School = response.data.School
-// })
-// }
-//         catch{
-//             this.$router.push({ name: 'start' })
-//         }    
+                .then(
+                    this.$router.push({ name: 'olimpiad' })
+                )
+                .catch(error => {
+                console.error(error);
+                })
         },
         async SeeResult(){
             await console.log('Посмотреть результаты')
-        }
+        },
+        OpenModal(){
+            this.isModalOpen = true;
+    }
 
     }
 }
@@ -117,13 +132,22 @@ export default{
 .olimpiad-card{
     color: #fafafa;
     display: flex;
-    justify-content: center;
+    justify-content: initial;
     font-size: 28px;
     min-width: 100%;
     background: linear-gradient(to left, transparent, rgb(223, 95, 21));
     opacity: 0.8;
     border-radius: 7px;
     margin-bottom: 3%;
+}
+.one-card{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    max-width: 70%;
+    min-width: 70%;
+
 }
 .modyle-olimpiad{
     display: flex;

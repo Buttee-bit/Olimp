@@ -150,6 +150,16 @@ methods:{
         }
         
     },
+    OpenModal(){
+        this.modalShow = true;
+    },
+
+    async StartOlimpiad(){
+    await axios.get('task/task/${id_olimp}',{withCredentials: true})
+        .then(
+            this.$router.push({ name: 'olimpiad' })
+        )
+},
 
 
 }
