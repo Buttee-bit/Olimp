@@ -18,10 +18,11 @@ router = APIRouter(
 current_user = fastapi_users.current_user()
 
 
-@router.get('/task')
-async def protect_get_task_for_olimpiad(id_olimp:OlimpRegister, user: User = Depends(current_user), session: AsyncSession = Depends(get_async_session)):
+@router.get('/task/{id}')
+async def protect_get_task_for_olimpiad(id:int, user: User = Depends(current_user), session: AsyncSession = Depends(get_async_session)):
     # stmt = select(task).where(olimpiad.c.id == id_olimp)
-    print(id_olimp)
+    print(id)
+    return {'id':id}
 # @router.get()
 
 
