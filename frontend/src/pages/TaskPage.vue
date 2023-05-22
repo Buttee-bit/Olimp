@@ -35,12 +35,19 @@
                     Именем какого ученого названа машина, имеющая следующее описание: математическая модель вычислений, описывающая абстрактную машину, которая манипулирует символами на полосе ленты в соответствии с таблицей правил.
                 </div>
             </div>
-            <div class="support-title">
+            <div class="support-title" v-if="type_task=1">
                 <div class="support-title-block">
                     <div class="support-title-answer-text">
                         Ответ
                     </div>
                 </div>
+            </div>
+            <div class="answer-field" v-if="type_task=1">
+                <div class="type_3_task">
+                    <input type="text" class="user-answer" placeholder="Ваш ответ">
+
+                </div>
+
             </div>
             
 
@@ -92,16 +99,25 @@ export default{
     components: {
         Header_olimp,
         Footer_olimp
+    },
+    data(){
+        return{
+            user_answer:'',
+        }
     }
 }
 
 </script>
 
 <style scoped>
+.app{
+    background-color: #000;
+    color: #000;
+}
 .wrapper{
     display: flex;
     flex-direction: row;
-    background-color: #b3adad;
+    background-color: #000;
 
 }
 .left-side{
@@ -238,6 +254,17 @@ export default{
 .support-title-answer-text{
     padding-left: 10px;
     padding-right: 10px;
+}
 
+.type_3_task{
+    background-color: #45454e;
+    padding: 10px;
+    padding-left: 15px;
+    border-radius: 5px;
+}
+.answer-field{
+    margin-top: 15px;
+    border-radius: 2px;
+    
 }
 </style>

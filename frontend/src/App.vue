@@ -16,7 +16,7 @@ export default {
 .app{
   width: 100%;
   height: 100%;
-  background: #ffffff;
+  background: #000000;
 }
 body {
   margin: 0;

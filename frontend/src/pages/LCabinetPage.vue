@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="card-wrapper">
-            <div
+            <div class ='one-card'
             v-for="(product, title) in items"
             :key="title"
             >
@@ -48,6 +48,7 @@
             </div>
             
         </div>
+        <Footer_olimp/>
     </div>
 </template>
 
@@ -55,11 +56,13 @@
 import axios from 'axios';
 import Header_olimp from '../components/Header_olimp.vue'
 import Olimpiad_Card from '@/components/Olimpiad_Card.vue';
+import Footer_olimp from '@/components/Footer_olimp.vue';
 
 export default {
     components: {
         Header_olimp,
-        Olimpiad_Card 
+        Olimpiad_Card,
+        Footer_olimp,
     },
     data(){
         return{
@@ -220,5 +223,6 @@ methods:{
   background-color: #f00;
   color: #fff;
 }
+
 </style>
 

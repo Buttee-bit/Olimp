@@ -23,6 +23,6 @@ app.add_middleware(
     allow_headers=["Content-Type","Set-Cookie"], 
 )
 
-app.include_router(task_router)
 app.include_router(auth_router)
 app.include_router(olimp_router)
+app.include_router(task_router)

@@ -13,8 +13,6 @@ from ..auth.models import User
 from .models import olimpiad, users_in_olimpiad
 from .schemas import OlimpRegister
 
-current_user = fastapi_users.current_user()
-
 
 
 router = APIRouter(
@@ -22,6 +20,7 @@ router = APIRouter(
     tags = ['olimpiads']
 )
 current_user = fastapi_users.current_user()
+
 @router.get('/all/not_end')
 async def protected_get_olimpiads_not_end(user: User = Depends(current_user) ,session: AsyncSession = Depends(get_async_session)):
     stmt = select(olimpiad).where(olimpiad.c.time_end > datetime.datetime.utcnow())
@@ -47,16 +46,23 @@ async def protected_get_olimpiads_not_end(user: User = Depends(current_user) ,se
             for i in buffer:
                 print(i['id_olimp'] == olimpiad_[0])
                 if i['id_olimp'] == olimpiad_[0]:
-                    flag = True
+                    flag = 1
+            list_data.append({
+                'id_olimp':olimpiad_[0],
+                'title':olimpiad_[1],
+                'time_end_data':olimpiad_[4].strftime("%d.%m.%Y"),
+                'time_end_hours':olimpiad_[4].strftime("%H:%M"),
+                'flag_user_in_olimp':flag
+            })
         except:
-            flag = False
-        list_data.append({
-            'id_olimp':olimpiad_[0],
-            'title':olimpiad_[1],
-            'time_end_data':olimpiad_[4].strftime("%d.%m.%Y"),
-            'time_end_hours':olimpiad_[4].strftime("%H:%M"),
-            'flag_user_in_olimp':flag
-        })
+            flag = 0
+            list_data.append({
+                'id_olimp':olimpiad_[0],
+                'title':olimpiad_[1],
+                'time_end_data':olimpiad_[4].strftime("%d.%m.%Y"),
+                'time_end_hours':olimpiad_[4].strftime("%H:%M"),
+                'flag_user_in_olimp':flag
+            })
     return JSONResponse(content=list_data)
 
 
@@ -72,7 +78,7 @@ async def protected_get_you_olimp(user: User = Depends(current_user) ,session: A
             'title':olimpiad_[1],
             'time_end_data':olimpiad_[4].strftime("%d.%m.%Y"),
             'time_end_hours':olimpiad_[4].strftime("%H:%M"),
-            'flag_user_in_olimp': True
+            'flag_user_in_olimp': 1
         })
     return JSONResponse(content=list_data)
 
@@ -89,6 +95,7 @@ async def protect_get_olimpiads_end(user: User = Depends(current_user), session:
             'title':olimpiad_[1],
             'time_end_data':olimpiad_[4].strftime("%d.%m.%Y"),
             'time_end_hours':olimpiad_[4].strftime("%H:%M"),
+            'flag_user_in_olimp': 2
         })
         print(list_data)
     return JSONResponse(content=list_data)
@@ -108,14 +115,7 @@ async def protect_register_olimpiad(id_olimp:OlimpRegister,user: User = Depends(
         print(list_data)
         JSONResponse(content=list_data)
     elif len(rows) != 1:
-        print(rows)
-        pass # Дописать Response
-
+        pass
     else:
-        print(rows)
-        list_data = [{
-            'msg': f'user: {user.id} уже зарегистрирован на олимпиаду:{id_olimp.id}'
-        }]
-        print(list_data)
+        pass
 
-        JSONResponse(content=list_data)
