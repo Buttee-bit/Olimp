@@ -31,10 +31,6 @@
         </div>
         <div class="buton-side">
             <div class="button-wr" v-if="flag_user_in_olimp == 0">
-                <!-- <button
-                @click="RegisterOlimpiad()">
-                    Записаться 
-                </button> -->
                 <button @click="OpenModal()">
                 Регистрация
                 </button>
@@ -106,7 +102,7 @@ data() {
             })
         },
         async StartOlimpiad(){
-            axios.get(`task/task/${Number(this.id_olimp)}`, {
+            await axios.get(`task/task/${Number(this.id_olimp)}`, {
                 withCredentials: true
                 })
                 .then(
@@ -119,7 +115,7 @@ data() {
         async SeeResult(){
             await console.log('Посмотреть результаты')
         },
-        OpenModal(){
+        async OpenModal(){
             this.isModalOpen = true;
     }
 

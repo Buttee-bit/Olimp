@@ -1,5 +1,4 @@
 <template>
-    <Header_olimp/>
     <div class="wrapper">
         <div class="left-side">
             <div class="titlt-olimp">
@@ -52,59 +51,39 @@
             
 
         </div>
-        <div class="right-side">
-            <div class="task-list">
-                <div class="square">
-                    1
-                </div>
-                <div class="square">
-                    2
-                </div>
-                <div class="square">
-                    3
-                </div>
-                <div class="square">
-                    4
-                </div>
-                <div class="square">
-                    5
-                </div>
-                <div class="square">
-                    6
-                </div>
-                <div class="square">
-                   7
-                </div>
-                <div class="square">
-                    8
-                </div>
-            </div>
-            
-            <div class="botton-submit-task">
-                <button class="submit">
-                    Отправить результаты
-                </button>
-            </div>
-            <timerVue class="timer" />
-
-        </div>
     </div>
-    <Footer_olimp/>
 </template>
 
 <script>
-import Header_olimp from '../components/Header_olimp.vue'
-import Footer_olimp from '../components/Footer_olimp.vue'
-import timerVue from '../components/timer.vue'
+
 export default{
-    components: {
-        Header_olimp,
-        timerVue,
-        Footer_olimp,
-    },
+
     data(){
         return{
             user_answer:'',
+        }
+    },
+    props:{
+        type_task:{
+            type: Number
+        },
+        olimp_title:{
+            type:String,
+        },
+        number_task:{
+            type: Number,
+        },
+        title_task:{
+            type: String,
+        },
+        score_task:{
+            type: Number,
+        },
+        text_task:{
+            type:String
+        },
+        decription_task:{
+            type: String
         }
     }
 }
@@ -228,45 +207,5 @@ export default{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.right-side {
-  position:fixed;
-  left: 75vw;
-  margin-top: 60px;
-  margin-right: 100px;
-  width: 30%;
-  max-width: 250px;
-}
-.botton-submit-task{
-    margin-top: 15px;
-
-}
-.submit{
-    /* height: 35px;
-    width: 120px; */
-    color: #ffffff;
-    background: linear-gradient(to top, #be8301, #ff4800);
-    border: 1px solid #b43f11;
-    background-color: #b43f11;
-    border-radius: 5px;
-    /* margin-left: 40px; */
-    font-size: 20px;
-    padding: 10px;
-}
-.support-title-answer-text{
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.type_3_task{
-    background-color: #45454e;
-    padding: 10px;
-    padding-left: 15px;
-    border-radius: 5px;
-}
-.answer-field{
-    margin-top: 15px;
-    border-radius: 2px;
-    
 }
 </style>

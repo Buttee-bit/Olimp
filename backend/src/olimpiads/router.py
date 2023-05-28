@@ -47,6 +47,8 @@ async def protected_get_olimpiads_not_end(user: User = Depends(current_user) ,se
                 print(i['id_olimp'] == olimpiad_[0])
                 if i['id_olimp'] == olimpiad_[0]:
                     flag = 1
+                else:
+                    flag = 0
             list_data.append({
                 'id_olimp':olimpiad_[0],
                 'title':olimpiad_[1],
@@ -67,7 +69,7 @@ async def protected_get_olimpiads_not_end(user: User = Depends(current_user) ,se
 
 
 @router.get('/all/you_olimp')
-async def protected_get_you_olimp(user: User = Depends(current_user) ,session: AsyncSession = Depends(get_async_session)):
+async def protected_get_you_olimp(user: User = Depends(current_user), session: AsyncSession = Depends(get_async_session)):
     stmt = olimpiad.select().join(olimpiad, users_in_olimpiad.c.id_olimpiad == olimpiad.c.id).where(users_in_olimpiad.c.user_id == user.id)
     res = await session.execute(stmt)
     data = res.fetchall()

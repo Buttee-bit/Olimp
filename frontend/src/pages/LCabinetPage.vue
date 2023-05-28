@@ -99,6 +99,8 @@ export default {
 methods:{
     async getDataActualOlimp(isActive1){
         if(!isActive1){
+            this.isActive2 = false
+            this.isActive3 = false
         await axios.get('olimpiads/all/not_end',
             {
                 withCredentials: true           
@@ -117,6 +119,8 @@ methods:{
     },
     async getDataYourOlimp(isActive2){
         if(!isActive2){
+            this.isActive1 = false
+            this.isActive3 = false
         await axios.get('olimpiads/all/you_olimp',
             {
                 withCredentials: true           
@@ -135,6 +139,8 @@ methods:{
     },
     async getDataEndOlimp(isActive3){
         if(!isActive3){
+            this.isActive1 = false
+            this.isActive2 = false
             await axios.get('olimpiads/all/end',
             {
                 withCredentials: true           
@@ -150,20 +156,7 @@ methods:{
         }
         
     },
-    OpenModal(){
-        this.modalShow = true;
-    },
-
-    async StartOlimpiad(){
-    await axios.get('task/task/${id_olimp}',{withCredentials: true})
-        .then(
-            this.$router.push({ name: 'olimpiad' })
-        )
-},
-
-
 }
-
 };
 </script>
 
