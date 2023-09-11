@@ -1,7 +1,7 @@
 <template>
     <div class="siginpage">
             <Header_olimp/>
-        <form @submit.prevent="handlerSubmit">
+        <form class='form-sigin' @submit.prevent="handlerSubmit">
             <div class="table-sigin">
                 <div class="logo-wrap">
                     <img 
@@ -20,17 +20,17 @@
                 </div>
                 <p class="else">------ или ------</p>
                 <div class="table-user-reg">
-                    <div class="row-input">
+                    <div class="row-input_top">
                         <div class="svg-elem">
-                            <img src="../assets/user_svg.svg" alt="" class="svg">
+                            <img src="../assets/email-svgrepo-com.svg" alt="" class="svg">
                         </div>
-                        <input type="text" class="email"   v-model="user_data.username " placeholder="Почта">
+                        <input  type="text" class="user-input"   v-model="user_data.username " placeholder="Почта">
                     </div>
-                    <div class="row-input">
+                    <div class="row-input_button">
                         <div class="svg-elem">
                             <img src="../assets/user_svg.svg" alt="" class="svg">
                         </div>
-                        <input type="password" class="password"  v-model="user_data.password " placeholder="Пароль">
+                        <input  type="password" class="user-input"  v-model="user_data.password " placeholder="Пароль">
                     </div>
                     
                 </div>
@@ -90,28 +90,34 @@ export default{
 </script>
 
 
-<style>
+<style scoped>
 .siginpage{
     width: 100%;
     height: 100%;
-    background-color: black;
+    display: flex;
+    flex-direction: column;
 }
 
 /* .button-sigin{
 
 } */
 .table-sigin{
-    background-color: rgb(219, 123, 13);
-
+    background-color: #222327;
     justify-content: center;
     justify-items: baseline;
     align-content: center;
     flex-wrap: wrap;
-    margin: 30%;
-    border-radius: 3%;
-    max-width: 27%
-
+    /* margin: 30%; */
+    border-radius: 0.5rem!important;
+    /* max-width: 50%; */
+    padding: 40px;
+    max-width: 310px;
+    min-width: 310px;
 }
+.logo-wrap{
+    margin: 0px;
+}
+
 .reg-Oauth{
     display: grid;
     margin-top: 4.2%;
@@ -120,6 +126,14 @@ export default{
     align-items: end;
 
 }
+.form-sigin{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+
 .yandex{
     font-size: 20px;
 
@@ -134,22 +148,65 @@ export default{
     justify-content: center;
 }
 .table-user-reg{
-    display: grid;
-    margin-top: 4.2%;
-    align-content: baseline;
-    justify-content: center;
-    align-items: flex-end;
-}
-.row-input{
     display: flex;
-    align-items: stretch;
-    flex-wrap: nowrap;
-    margin-bottom: 10%;
-    justify-content: center;
+    margin-top: 4.2%;
+    align-content: stretch;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    /* width: 70%; */
+
 }
-.svg-elem{
-    width: 21px;
-    height: 21px;
+
+.row-input_top{
+    display: flex;
+    /* margin-bottom: 10%; */
+    background: rgb(39, 39, 42);
+    padding: 5px;
+    border-radius: 5px 5px 0px 0px;
+    width: 80%;
+    height: 20px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    border-top-color:  rgb(63, 63, 70);
+    border-top-style: solid;
+    border-right-color:  rgb(63, 63, 70);
+    border-right-style: solid;
+    border-left-color:  rgb(63, 63, 70);
+    border-left-style: solid;
+
+    /* border-color: #008a77; */ 
+    /* border-style: solid; */
+}
+.row-input_button{
+    display: flex;
+    /* margin-bottom: 10%; */
+    background: rgb(39, 39, 42);
+    padding: 5px;
+    border-radius: 0px 0px 5px 5px;
+    width: 80%;
+    height: 20px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    border-top-color:  rgb(63, 63, 70);
+    border-top-style: solid;
+    border-bottom-color:  rgb(63, 63, 70);
+    border-bottom-style: solid;
+    border-right-color:  rgb(63, 63, 70);
+    border-right-style: solid;
+    border-left-color:  rgb(63, 63, 70);
+    border-left-style: solid;
+}
+.user-input{
+    color: #efefef;
+    background: rgb(39, 39, 42);
+    padding: 0px;
+    background: rgb(39, 39, 42);
+    border-radius: -7px;
+    border: 0;
+    width: 100%;
 }
 .button-res{
     display: flex;
@@ -159,12 +216,18 @@ export default{
     align-items: center;
 }
 .b-res{
-    height: 41px;
-    width: 129px;
+    display: flex;
+    width: 100%;
+    height: 31px;
     color: #fafafa;
-    background: linear-gradient(to top, #be8301, #ff4800);
+    background: linear-gradient(to top, #bb432c, #ff4800);
     border: 2px solid #b43f11;
-    background-color: #b43f11;
+    background-color: #bb432c;
     border-radius: 5px;
+    cursor: pointer;
+    justify-content: space-around;
+    /* align-content: center; */
+    align-items: center;
+    margin-top: 10px;
 }
 </style>

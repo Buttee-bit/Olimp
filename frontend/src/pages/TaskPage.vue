@@ -1,56 +1,18 @@
 <template>
     <Header_olimp/>
     <div class="wrapper">
-        <div class="left-side">
-            <div class="titlt-olimp">
-                <div class="title">Олимпиада по программированию  00:39:34 </div>
-            </div>
-            <div class="title-task">
-                <div class="number">11</div>
-                <div class="table-task">
-                    <div class="name">Задача на координаты</div>
-                    <div class="score">2 балла </div>
-                </div>
-            </div>
-            <div class="support-title">
-                <div class="support-title-block">
-                    <div class="support-title-text">
-                        Описание
-                    </div>
-                </div>
-                
-                <div class="support-title-block">
-                    <div class="support-title-text">
-                        Дополнительно
-                    </div>
-                </div>
-                <div class="support-title-block">
-                    <div class="support-title-text">
-                        Скачать файл
-                    </div>
-                </div>
-            </div>
-            <div class="block-text-task">
-                <div class="text">
-                    Именем какого ученого названа машина, имеющая следующее описание: математическая модель вычислений, описывающая абстрактную машину, которая манипулирует символами на полосе ленты в соответствии с таблицей правил.
-                </div>
-            </div>
-            <div class="support-title" v-if="type_task=1">
-                <div class="support-title-block">
-                    <div class="support-title-answer-text">
-                        Ответ
-                    </div>
-                </div>
-            </div>
-            <div class="answer-field" v-if="type_task=1">
-                <div class="type_3_task">
-                    <input type="text" class="user-answer" placeholder="Ваш ответ">
-
-                </div>
-
-            </div>
-            
-
+        <div class="left-side"> 
+            <TaskOlimp
+            :type_task = "card.type_task"
+            :olimp_title = "card.olimp_title"
+            :number_task = "card.number_task"
+            :title_task = "card.title_task"
+            :score_task = "card.score_task"
+            :text_task = "card.text_task"
+            :decription_task = "card.decription_task"
+            :id_olimp = "card.id_olimp"
+            :id_task = "card.id_task"
+            />
         </div>
         <div class="right-side">
             <div class="task-list">
@@ -95,18 +57,36 @@
 <script>
 import Header_olimp from '../components/Header_olimp.vue'
 import Footer_olimp from '../components/Footer_olimp.vue'
+import TaskOlimp from '@/components/TaskOlimp.vue'
 import timerVue from '../components/timer.vue'
+import axios from 'axios'
 export default{
     components: {
         Header_olimp,
+        TaskOlimp,
         timerVue,
         Footer_olimp,
     },
     data(){
         return{
             user_answer:'',
+            card : [],
         }
-    }
+    },
+    async mounted(){
+        try {
+            await axios.get(`task/olimp${3}/task/${this.id_task}`,
+                {
+                withCredentials: true
+                }) .then(response => {
+                    console.log(response.data)
+                    this.card = response.data
+})
+}
+        catch{
+            console.log('wrong')
+        }       
+},
 }
 
 </script>

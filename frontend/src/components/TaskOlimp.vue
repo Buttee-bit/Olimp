@@ -2,13 +2,13 @@
     <div class="wrapper">
         <div class="left-side">
             <div class="titlt-olimp">
-                <div class="title">Олимпиада по программированию  00:39:34 </div>
+                <div class="title">{{olimp_title}}  00:39:34 </div>
             </div>
             <div class="title-task">
-                <div class="number">11</div>
+                <div class="number">{{number_task}}</div>
                 <div class="table-task">
-                    <div class="name">Задача на координаты</div>
-                    <div class="score">2 балла </div>
+                    <div class="name">{{ title_task }}</div>
+                    <div class="score">{{score_task}} </div>
                 </div>
             </div>
             <div class="support-title">
@@ -31,22 +31,20 @@
             </div>
             <div class="block-text-task">
                 <div class="text">
-                    Именем какого ученого названа машина, имеющая следующее описание: математическая модель вычислений, описывающая абстрактную машину, которая манипулирует символами на полосе ленты в соответствии с таблицей правил.
+                    {{ text_task }}
                 </div>
             </div>
-            <div class="support-title" v-if="type_task=1">
+            <div class="support-title" v-if="props.type_task=1">
                 <div class="support-title-block">
                     <div class="support-title-answer-text">
                         Ответ
                     </div>
                 </div>
             </div>
-            <div class="answer-field" v-if="type_task=1">
+            <div class="answer-field" v-if="props.type_task=1">
                 <div class="type_3_task">
                     <input type="text" class="user-answer" placeholder="Ваш ответ">
-
                 </div>
-
             </div>
             
 
@@ -55,37 +53,49 @@
 </template>
 
 <script>
-
+// import axios from 'axios'
 export default{
-
-    data(){
-        return{
-            user_answer:'',
-        }
-    },
-    props:{
-        type_task:{
-            type: Number
-        },
-        olimp_title:{
-            type:String,
-        },
-        number_task:{
-            type: Number,
-        },
-        title_task:{
-            type: String,
-        },
-        score_task:{
-            type: Number,
-        },
-        text_task:{
-            type:String
-        },
-        decription_task:{
-            type: String
-        }
+    
+    name:'task_component',
+data(){
+    return{
+        user_answer:'',
     }
+},
+props:{
+    id_olimp:{
+        type: Number,
+        default: 3
+    },
+    id_task:{
+        type: Number,
+        default: 1
+    },
+    type_task:{
+        type: Number,
+        default: 1
+    },
+    olimp_title:{
+        type:String,
+    },
+    number_task:{
+        type: Number,
+    },
+    title_task:{
+        type: String,
+    },
+    score_task:{
+        type: Number,
+    },
+    text_task:{
+        type:String,
+    },
+    decription_task:{
+        type: String,
+    },
+},
+
+
 }
 
 </script>

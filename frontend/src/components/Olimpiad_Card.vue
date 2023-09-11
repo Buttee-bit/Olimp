@@ -95,6 +95,7 @@ data() {
                     'Accept': '*/*'}
                 }
             await axios.post('olimpiads/register/olimpiad',
+            
             {
                 "id":this.id_olimp
             },axiosConfig).then((response)=>{
@@ -102,19 +103,20 @@ data() {
             })
         },
         async StartOlimpiad(){
-            await axios.get(`task/task/${Number(this.id_olimp)}`, {
-                withCredentials: true
-                })
-                .then(
+            // await axios.get(`task/olimp/${this.id_olimp}/task/${1}`, {
+            //     withCredentials: true
+            //     })
+                // .then(
                     this.$router.push({ name: 'olimpiad' })
-                )
-                .catch(error => {
-                console.error(error);
-                })
+                // )
+                // .catch(error => {
+                // console.error(error);
+                // })
         },
         async SeeResult(){
             await console.log('Посмотреть результаты')
         },
+        // 
         async OpenModal(){
             this.isModalOpen = true;
     }

@@ -42,7 +42,8 @@ async def protect_get_task_for_olimpiad(id_olimp:int,id_task:int, user: User = D
     question_stmt = select(task).where(task.c.id_olimpiad == id_olimp).where(task.c.id == id_task)
     question_res = await session.execute(question_stmt)
     data_question_res = question_res.fetchone()
-    print(data_question_res[2],data_question_res[-2])#title task, text task
+    print(data_question_res)
+    # print(data_question_res[2],data_question_res[-2])#title task, text task
 
 
     if data_question_res[-1] == 3:
@@ -58,9 +59,27 @@ async def protect_get_task_for_olimpiad(id_olimp:int,id_task:int, user: User = D
         data_answer = answer_res.fetchall()
         print(data_answer) # answers
 
-
-
-    pass
+    data = [{
+        'id_olimp': data_olimp_res[0],
+        'id_task': data_question_res[0],
+        'type_task': data_question_res[-1],
+        'olimp_title': data_olimp_res[1],
+        'number_task': 1,
+        'title_task': data_question_res[2],
+        'score_task': 1,
+        'text_task': data_question_res[-2],
+        'decription_task': data_decription[1],
+    }]
+    return JSONResponse(content=data)
+    # id_olimp
+    # id_task
+    # type_task
+    # olimp_title
+    # number_task
+    # title_task
+    # score_task
+    # text_task
+    # decription_task
 # @router.get()
 
 
