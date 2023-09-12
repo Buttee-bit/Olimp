@@ -10,37 +10,42 @@
                     class="logo">
                 </div>
                 <div class="reg-Oauth">
-                    <button class="yandex">
-                        Войти через Яндекс 
+                    <button class="Ouath">
+                        Войти с помощью  Яндекс 
                     </button>
                     <br>
-                    <button class="google">
-                        Войти через Google 
+                    <button class="Ouath">
+                        Войти с помощью Google 
                     </button>
                 </div>
                 <p class="else">------ или ------</p>
                 <div class="table-user-reg">
                     <div class="row-input_top">
-                        <div class="svg-elem">
+                        <!-- <div class="svg-elem">
                             <img src="../assets/email-svgrepo-com.svg" alt="" class="svg">
-                        </div>
+                        </div> -->
                         <input  type="text" class="user-input"   v-model="user_data.username " placeholder="Почта">
                     </div>
                     <div class="row-input_button">
-                        <div class="svg-elem">
+                        <!-- <div class="svg-elem">
                             <img src="../assets/user_svg.svg" alt="" class="svg">
-                        </div>
+                        </div> -->
                         <input  type="password" class="user-input"  v-model="user_data.password " placeholder="Пароль">
                     </div>
                     
                 </div>
-                <div class="button-res">
-                    <button class="b-res" type="submit">Войти</button>
+                <div class="last-wrap">
+                    <div class="button-res">
+                        <button class="b-res" type="submit">Войти</button>
+                    </div>
+                    <div class="else-no-acc">
+                        <p>Еще нет аккаунта? </p>
+                        <div class="div-text_last">
+                            <p class="text-last" @click="$router.push({ name: 'registration' })"> Зарегистрироваться</p>
+                        </div>
+                    </div>
                 </div>
-                <p>Нет аккаунта ?</p>
-                <div class="button-sigin">
-                    <button class="b-res" @click="$router.push({ name: 'registration' })">Зарегистрироваться</button>
-                </div>
+
             </div>
     </form>
     <Footer_olimp/>
@@ -111,19 +116,17 @@ export default{
     border-radius: 0.5rem!important;
     /* max-width: 50%; */
     padding: 40px;
-    max-width: 310px;
-    min-width: 310px;
+    width: 411px;
+    height: 666px;
 }
 .logo-wrap{
     margin: 0px;
 }
 
 .reg-Oauth{
-    display: grid;
-    margin-top: 4.2%;
-    align-content: stretch;
-    justify-content: space-around;
-    align-items: end;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 
 }
 .form-sigin{
@@ -134,13 +137,13 @@ export default{
     margin-top: 5%;
 }
 
-.yandex{
-    font-size: 20px;
-
-}
-.google{
-    font-size: 20px;
-
+.Ouath{
+    border-radius: 5px;
+    border: 1px solid #3F3F46;
+    background: #27272A;
+    color: #D4D4D8;
+    font-size: 14px;
+    height: 40px
 }
 .else{
     display: flex;
@@ -149,18 +152,13 @@ export default{
 }
 .table-user-reg{
     display: flex;
-    margin-top: 4.2%;
-    align-content: stretch;
-    justify-content: space-around;
-    align-items: center;
+    align-items: stretch;
     flex-direction: column;
-    /* width: 70%; */
 
 }
 
 .row-input_top{
-    display: flex;
-    /* margin-bottom: 10%; */
+    /* display: flex;
     background: rgb(39, 39, 42);
     padding: 5px;
     border-radius: 5px 5px 0px 0px;
@@ -174,39 +172,27 @@ export default{
     border-right-color:  rgb(63, 63, 70);
     border-right-style: solid;
     border-left-color:  rgb(63, 63, 70);
-    border-left-style: solid;
+    border-left-style: solid; */
 
-    /* border-color: #008a77; */ 
-    /* border-style: solid; */
+
 }
 .row-input_button{
-    display: flex;
-    /* margin-bottom: 10%; */
-    background: rgb(39, 39, 42);
-    padding: 5px;
-    border-radius: 0px 0px 5px 5px;
-    width: 80%;
-    height: 20px;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: stretch;
-    border-top-color:  rgb(63, 63, 70);
-    border-top-style: solid;
-    border-bottom-color:  rgb(63, 63, 70);
-    border-bottom-style: solid;
-    border-right-color:  rgb(63, 63, 70);
-    border-right-style: solid;
-    border-left-color:  rgb(63, 63, 70);
-    border-left-style: solid;
+
 }
 .user-input{
-    color: #efefef;
-    background: rgb(39, 39, 42);
-    padding: 0px;
-    background: rgb(39, 39, 42);
-    border-radius: -7px;
-    border: 0;
+    
+    /* border-radius: 5px 5px 0px 0px; */
     width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #3F3F46;
+    background: #27272A;
+    color: #D4D4D8;
+    font-size: 14px;
+    height: 40px;
+    margin-bottom: 4.2%;
+    text-align: center;
+        
 }
 .button-res{
     display: flex;
@@ -218,9 +204,10 @@ export default{
 .b-res{
     display: flex;
     width: 100%;
-    height: 31px;
+    height: 60px;
     color: #fafafa;
-    background: linear-gradient(to top, #bb432c, #ff4800);
+    border-radius: 5px;
+    background: #BB432C;
     border: 2px solid #b43f11;
     background-color: #bb432c;
     border-radius: 5px;
@@ -229,5 +216,36 @@ export default{
     /* align-content: center; */
     align-items: center;
     margin-top: 10px;
+    text-align: center;
+    font-family: Yandex Sans Display;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 11px 83px 11px 84px;
+}
+.last-wrap{
+    display: flex;
+    flex-direction: column;
+}
+.else-no-acc{
+    display: flex;
+    flex-direction: row;
+}
+.text-last{
+    color: #C0C0C0;
+    text-decoration-line: underline;
+    color: #C0C0C0;
+
+}
+.else-no-acc{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    color: #C0C0C0;
+}
+.div-text_last{
+    margin-left: 5px;
 }
 </style>
