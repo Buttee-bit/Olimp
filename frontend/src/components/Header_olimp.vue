@@ -18,7 +18,7 @@
 
 </template>
 
-<script>
+<script scoped>
 import LogOut from './LogOut.vue';
 
 export default{
@@ -42,21 +42,21 @@ export default{
 <style scoped>
 .header {
   width: 100%;
-  height: 60px;
+  height: 56px;
   display: flex;
   justify-content: space-between;
 
   background: #18181C;
   /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); */
-  border-bottom: 2px solid #646262
+  border-bottom: 1px solid #2F2F32;
 }
 
 .name-site {
   font-family: 'IBM Plex Serif';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400px;
   font-size: 36px;
-  margin-left: 15%;
+  margin-left: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,15 +75,28 @@ export default{
 }
 .sigin-button-wrap{
     margin-right: 5%;
+    height: 37px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 .sigin-button{
     height: 35px;
     width: 95px;
+    font-family: Tahoma;
+    font-style: normal;
+    font-size: 26px;
     color: #fafafa;
-    background: linear-gradient(to top, #be8301, #ff4800);
-    border: 2px solid #b43f11;
-    background-color: #b43f11;
-    border-radius: 7px;
+    /* background: linear-gradient(to top, #be8301, #ff4800); */
+    border: 2px solid #BB432C;
+    background-color: #BB432C;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .register-button{

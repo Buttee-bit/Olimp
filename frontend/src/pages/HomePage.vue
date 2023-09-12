@@ -6,8 +6,8 @@
         <div class="text-olimpiad">
             <p>Онлайн-олимпиады от</p>
             <p></p>
-            <p>Военно-Космической академии</p>
-            <p>им. А. Ф. Можайского</p>
+            <p>Военно-Космической академии им. А. Ф. Можайского</p>
+            <!-- <p>им. А. Ф. Можайского</p> -->
             <p></p>
             <p></p>
             <p></p>
@@ -21,49 +21,52 @@
             </button>
         </div>
     </div>
-    <div class="second-block">
-        <div class="prog-table">
-            <div class="svg-elem">
-                <img src="../assets/program.svg" alt="">
+    <div class="main-theme">
+        <div class="second-block-first">
+            <div class="prog-table">
+                <div class="svg-elem">
+                    <img src="../assets/program.svg" alt="">
+                </div>
+                <div class="title-prog">
+                    <h3 class="title-block-text">Программирование</h3>
+                </div>
+                <div class="text-block">
+                    <p class="text-first-block">Будут затронуты такие</p>
+                    <p class="text-first-block">темы как ООП, алгоритмы, структуры </p>
+                    <p class="text-first-block">данных архитектура</p>
+                </div>
             </div>
+    </div>
+    <div class="second-block-two">
+        <div class="second-block">
+            <div class="prog-table">
+                <div class="title-prog">
+                    <h3 class="title-block-text">Криптография</h3>
+                </div>
+                <div class="text-block">
+                    <p class="text-first-block">Разберите программные решения,</p> 
+                    <p class="text-first-block">которые используются для</p> 
+                    <p class="text-first-block">шифрования данных приобмене</p>  
+                    <p class="text-first-block">информацией и еёхранении</p> 
+                </div>
+            </div>
+        </div>
+    <div class="second-block-right">
+        <div class="prog-table">
             <div class="title-prog">
-                <h3>Программирование</h3>
+                <h3 class="title-block-text">Базы данных</h3>
             </div>
             <div class="text-block">
-                будут затронуты такие
-                темы как ООП, алгоритмы, структуры данных архитектура
+                <p class="text-first-block">Проектирование и оптимизирование</p>
+                <p class="text-first-block">структур баз данных.</p>
+                <p class="text-first-block">Эффективная работа</p>
+                <p class="text-first-block">с ними через код</p>
             </div>
         </div>
     </div>
-    <div class="second-block">
-        <div class="prog-table">
+    </div>
+    </div>
 
-            <div class="title-prog">
-                <h3>Криптография</h3>
-            </div>
-            <div class="text-block">
-                Разберите программные решения, 
-                которые используются для 
-                шифрования данных при обмене 
-                информацией и её хранении
-            </div>
-        </div>
-    </div>
-    <div class="second-block">
-        <div class="prog-table">
-            <!-- <div class="svg-elem">
-                <img src="../assets/program.svg" alt="">
-            </div> -->
-            <div class="title-prog">
-                <h3>Базы данных</h3>
-            </div>
-            <div class="text-block">
-                Проектирование и оптимизирование 
-                баз данных. Эффективная работа с 
-                ними через код
-            </div>
-        </div>
-    </div>
     <Footer_olimp/>
 </div>
 </template>
@@ -87,7 +90,7 @@ export default {
 
 <style scoped>
 .home-pages{
-    background-color: #0a0a0a;
+    background: radial-gradient(48.28% 14.14% at 49.5% 19.95%, rgba(255, 77, 77, 0.28) 0%, rgba(0, 0, 0, 0.00) 100%), #19191D;
 }
 .text-olimpiad{
     display: grid;
@@ -105,8 +108,10 @@ p {
 }
 .color-head{
     font-size: 36px;
-    background-image: linear-gradient(to bottom right, #ff6600, #ff3c00);
+    background-image: linear-gradient(-195deg, #FFED00, #FF4F4E);
     -webkit-background-clip: text;
+
+
     -webkit-text-fill-color: transparent;
 }
 .buton-start-wrapper{
@@ -124,46 +129,96 @@ p {
     font-size: 20px;
     height: 60px;
     border: 2px solid #612107;
-    background-color: #c5330e;
+    /* background: linear-gradient(135deg, #FFED00, #FF4F4E); */
     border-radius: 7px;
 }
+.main-theme{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    align-content: stretch;
+    flex-direction: column;
+
+}
 .second-block{
+    display: flex;
+    width: 100%;
+    /* margin-left: 196px; */
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 20px;
+    margin-left: 5px;
+
+}
+.second-block-right{
+    display: flex;
+    width: 100%;
+    /* margin-left: 196px; */
+    flex-direction: column;
+    align-items: stretch;
+    margin-right: 4px;
+}
+.second-block-first{
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     margin-top: 5%;
 }
+/* .prog-table-first{
+    display: flex;
+} */
+.title-prog_first{
+    display: flex;
+
+}
 .prog-table{
     width: 70%;
     display: table-column;
-    background: linear-gradient(to left, transparent, rgb(223, 95, 21));
-    opacity: 0.8;
-    border-radius: 7px;
+    /* background: linear-gradient(to left, transparent, rgb(223, 95, 21));
+     */
+    background: rgba(34, 35, 39, 0.53);
+    /* background-color: #FF4F4E; */
+    opacity: 0.75;
+    border-radius: 20px;
+    background: rgba(255, 77, 77, 0.06);
+
+}
+.second-block-two{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin-top: 10px;
 
 }
 .svg-elem{
-    
-    max-width: 60px;
-    max-height: 68px;
     display: flex;
-    margin-top: 8px;
-    margin-left: 4%;
-
-
+    width: 77px;
+    height: 77px;
+    margin-left: 3%;
+    margin-top: 1%;
 }
 .title-prog{
     color: #ffffff;
-    margin-left: 5%;
-    font-size: 26px;
+    margin-left: 3%;
+    font-size: 48px;
+}
+.title-block-text{
+    /* margin-top: 5px; */
+    margin: 10px 50px 5px 0;
+
 
 }
 .text-block{
-    color: #ffffff;
-    margin-left: 5%;
+    color: #EBE9E9;
+    margin-left: 3%;
     margin-bottom: 3%;
-    font-size: 20px;
-
-
+    font-size: 32px;
+}
+.text-first-block{
+    margin: 0px;
+    padding: 0%;
 }
 .thred-block{
     display: block;

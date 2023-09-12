@@ -19,5 +19,7 @@ export default{
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 80px;
+    /* height: 159px; */
+    /* width: 144px; */
 }
 </style>
