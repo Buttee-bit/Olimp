@@ -39,7 +39,7 @@ export default{
 
 </script>
 
-<style scoped>
+<style >
 .header {
   width: 100%;
   height: 56px;
@@ -86,7 +86,7 @@ export default{
     width: 95px;
     font-family: Tahoma;
     font-style: normal;
-    font-size: 26px;
+    font-size: 20px;
     color: #fafafa;
     /* background: linear-gradient(to top, #be8301, #ff4800); */
     border: 2px solid #BB432C;
@@ -101,7 +101,7 @@ export default{
 
 .register-button{
     height: 35px;
-    color: #ffffff;
+    color: #FFF;
     background-color: #18181C;
     border: 2px solid #b43f11;
     border-radius: 7px;

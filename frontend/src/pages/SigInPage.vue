@@ -51,10 +51,10 @@
                 </div>
 
             </div>
-    </form>
-    <Footer_olimp/>
+        </form>
+        <Footer_olimp/>
 
-</div>
+    </div>
 
 </template>
 
@@ -107,18 +107,13 @@ export default{
     flex-direction: column;
 }
 
-/* .button-sigin{
-
-} */
 .table-sigin{
     background-color: #222327;
     justify-content: center;
     justify-items: baseline;
     align-content: center;
     flex-wrap: wrap;
-    /* margin: 30%; */
     border-radius: 0.5rem!important;
-    /* max-width: 50%; */
     padding: 40px;
     width: 411px;
     height: 666px;
@@ -171,28 +166,8 @@ export default{
 
 }
 
-.row-input_top{
-    /* display: flex;
-    background: rgb(39, 39, 42);
-    padding: 5px;
-    border-radius: 5px 5px 0px 0px;
-    width: 80%;
-    height: 20px;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: stretch;
-    border-top-color:  rgb(63, 63, 70);
-    border-top-style: solid;
-    border-right-color:  rgb(63, 63, 70);
-    border-right-style: solid;
-    border-left-color:  rgb(63, 63, 70);
-    border-left-style: solid; */
 
 
-}
-.row-input_button{
-
-}
 .user-input{
     
     /* border-radius: 5px 5px 0px 0px; */
@@ -227,7 +202,6 @@ export default{
     border-radius: 5px;
     cursor: pointer;
     justify-content: space-around;
-    /* align-content: center; */
     align-items: center;
     margin-top: 10px;
     text-align: center;
