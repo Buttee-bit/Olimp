@@ -18,7 +18,11 @@
                         Войти с помощью Google 
                     </button>
                 </div>
-                <p class="else">------ или ------</p>
+                <div class="else">
+                    <hr color="#3F3F46" width=40%  height= "1px" >
+                    ИЛИ
+                    <hr color="#3F3F46" width=40%  height= "1px"  >
+                    </div>
                 <div class="table-user-reg">
                     <div class="row-input_top">
                         <!-- <div class="svg-elem">
@@ -147,9 +151,19 @@ export default{
 }
 .else{
     display: flex;
+    flex-direction: row;
     margin-top: 4.2%;
     justify-content: center;
+    color: #5F5F66;
+    text-align: center;
+    font-family: IBM Plex Serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    align-items: flex-start;
 }
+
 .table-user-reg{
     display: flex;
     align-items: stretch;

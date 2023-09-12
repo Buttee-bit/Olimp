@@ -47,7 +47,7 @@
                     <p class="text-first-block">Разберите программные решения,</p> 
                     <p class="text-first-block">которые используются для</p> 
                     <p class="text-first-block">шифрования данных приобмене</p>  
-                    <p class="text-first-block">информацией и еёхранении</p> 
+                    <p class="text-first-block">информацией и её хранении</p> 
                 </div>
             </div>
         </div>
@@ -57,8 +57,9 @@
                 <h3 class="title-block-text">Базы данных</h3>
             </div>
             <div class="text-block">
-                <p class="text-first-block">Проектирование и оптимизирование</p>
-                <p class="text-first-block">структур баз данных.</p>
+                <!-- Проектирование и оптимизирование баз данных. Эффективная работа с ними через код -->
+                <p class="text-first-block">Проектирование и </p>
+                <p class="text-first-block">оптимизирование баз данных.</p>
                 <p class="text-first-block">Эффективная работа</p>
                 <p class="text-first-block">с ними через код</p>
             </div>
@@ -92,13 +93,16 @@ export default {
 .home-pages{
     background: radial-gradient(48.28% 14.14% at 49.5% 19.95%, rgba(255, 77, 77, 0.28) 0%, rgba(0, 0, 0, 0.00) 100%), #19191D;
 }
+/* .home-pages{
+    background: url("../assets/program.svg"), lightgray 0% 0% / 50px 50px repeat; 
+} */
 .text-olimpiad{
     display: grid;
     color: #ffffff;
     justify-content: space-around;
     align-items: center;
     justify-items: center;
-    font-size: 42px;
+    font-size: 55px;
     margin-top: 15px;
 }
 
@@ -110,6 +114,7 @@ p {
     font-size: 36px;
     background-image: linear-gradient(-195deg, #FFED00, #FF4F4E);
     -webkit-background-clip: text;
+    font-size: 55px;
 
 
     -webkit-text-fill-color: transparent;
@@ -125,12 +130,11 @@ p {
 }
 .buton-start{
     color: #0a0a0a;
-    background-color: #d84d16;
-    font-size: 20px;
-    height: 60px;
-    border: 2px solid #612107;
-    /* background: linear-gradient(135deg, #FFED00, #FF4F4E); */
-    border-radius: 7px;
+    background: #FF4D4D;
+    font-size: 36px;
+    padding: 17px 42px 18px 41px;
+
+    border-radius: 5px;
 }
 .main-theme{
     display: flex;
@@ -176,11 +180,11 @@ p {
     display: table-column;
     /* background: linear-gradient(to left, transparent, rgb(223, 95, 21));
      */
-    background: rgba(34, 35, 39, 0.53);
+    /* background: rgba(34, 35, 39, 0.53); */
     /* background-color: #FF4F4E; */
     opacity: 0.75;
     border-radius: 20px;
-    background: rgba(255, 77, 77, 0.06);
+    background: rgba(255, 77, 77, 0.12);
 
 }
 .second-block-two{
@@ -219,6 +223,7 @@ p {
 .text-first-block{
     margin: 0px;
     padding: 0%;
+    width: 100%;
 }
 .thred-block{
     display: block;
