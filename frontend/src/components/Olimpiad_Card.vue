@@ -13,7 +13,7 @@
     <div class="olimpiad-card">
         <div class="left-side">
             <div class="title-olimpiad">
-                <p>{{ title }}</p>
+                <p class="title-olimp-card-text">{{ title }}</p>
             </div>
             <div class="modyle-olimpiad">
                 <div>Программирование</div>
@@ -31,19 +31,19 @@
         </div>
         <div class="buton-side">
             <div class="button-wr" v-if="flag_user_in_olimp == 0">
-                <button @click="OpenModal()">
+                <button class="button-button" @click="OpenModal()">
                 Регистрация
                 </button>
 
             </div>
             <div class="button-wr" v-if="flag_user_in_olimp == 1">
-                <button
+                <button class="button-button"
                 @click="StartOlimpiad()">
                     Участвовать 
                 </button>
             </div>
             <div class="button-wr" v-if="flag_user_in_olimp == 2">
-                <button
+                <button class="button-button"
                 @click="SeeResult()">
                     Результаты 
                 </button>
@@ -128,15 +128,15 @@ data() {
 
 <style>
 .olimpiad-card{
-    color: #fafafa;
+    color: #D4D4D8;
     display: flex;
-    justify-content: initial;
-    font-size: 28px;
-    min-width: 100%;
-    background: linear-gradient(to left, transparent, rgb(223, 95, 21));
-    opacity: 0.8;
+    /* font-size: 28px; */
+    height: 143px;
+    background: #222327;
     border-radius: 7px;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
+    flex-direction: row;
+    margin-left: 10px;
 }
 .one-card{
     display: flex;
@@ -149,21 +149,35 @@ data() {
 }
 .modyle-olimpiad{
     display: flex;
-    font-size: 18px;
-    margin-left: 10px;
-    padding-left: 10px;
     justify-content: space-evenly;
+    gap: 12px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 17px;
 
 }
 .left-side{
-    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    align-items: center;
+    justify-content: space-evenly;
+
 }
 .buton-side{
-    margin-left: 5%;
+    margin-left: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+
+}
+.date-t{
+    font-size: 22px;
+}
+.hours{
+    font-size: 22px;
 }
 .time{
     margin-left: 5%;
@@ -171,5 +185,34 @@ data() {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.title-olimpiad{
+    display: flex;
+    flex-direction: row;    
+}
+.title-olimp-card-text{
+    font-size: 32px;
+    margin: 0px;
+}
+/* .button-button{
+    background: #BB432C;
+    border: 2px solid #b43f11;
+    background-color: #bb432c;
+} */
+.button-register{
+    background: #BB432C;
+    border: 2px solid #b43f11;
+    background-color: #bb432c;
+}
+.button-button{
+    background: #BB432C;
+    border: 2px solid #b43f11;
+    background-color: #bb432c;
+    height: 100%;
+    width: 100px;
+    border-radius: 5px;
+    color: #D4D4D8;
+    height: 40px;
+    width: 120%;
 }
 </style>

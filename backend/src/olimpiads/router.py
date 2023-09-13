@@ -11,6 +11,7 @@ from ..auth.base_config import fastapi_users
 
 from ..auth.models import User
 from .models import olimpiad, users_in_olimpiad
+from ..task.models import decription, type_task, task, answer, user_answer, total_score
 from .schemas import OlimpRegister
 
 
@@ -121,3 +122,6 @@ async def protect_register_olimpiad(id_olimp:OlimpRegister,user: User = Depends(
     else:
         pass
 
+@router.get('/start/olimpiad')
+async def star_olimpiad(id_olimp:OlimpRegister,user: User = Depends(current_user), session: AsyncSession = Depends(get_async_session)):
+    stmt = select()

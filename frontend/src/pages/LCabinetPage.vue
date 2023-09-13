@@ -161,6 +161,10 @@ methods:{
 </script>
 
 <style>
+.lk-cabinet{
+    background: #16171b;
+    /* 27272A */
+}
 .wrapper-user{
     color: #fafafa;
     display: flex;
@@ -169,8 +173,6 @@ methods:{
     margin-top: 10%;
     height: 60%;
     width: 100%;
-    
-
 }
 .user-card{
     /* background-color: gray; */
@@ -202,7 +204,6 @@ methods:{
     color: #fafafa;
     margin-top: 5%;
     display: grid;
-    width: 72%;
     padding-right: 10%;
     padding-left: 10%;
     align-content: center;
@@ -213,6 +214,10 @@ methods:{
 }
 .text-olimp{
     margin-left: 12px;
+    border-radius: 5px;
+    background: #222327;
+    color: #D4D4D8;
+    padding: 15px;
 }
 .card-wrapper{
     display: flex;

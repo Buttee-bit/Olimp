@@ -32,8 +32,8 @@
                 </div>
                 <div class="text-block">
                     <p class="text-first-block">Будут затронуты такие</p>
-                    <p class="text-first-block">темы как ООП, алгоритмы, структуры </p>
-                    <p class="text-first-block">данных архитектура</p>
+                    <p class="text-first-block">темы как ООП, алгоритмы, </p>
+                    <p class="text-first-block">структуры данных архитектура</p>
                 </div>
             </div>
     </div>
@@ -44,9 +44,9 @@
                     <h3 class="title-block-text">Криптография</h3>
                 </div>
                 <div class="text-block">
-                    <p class="text-first-block">Разберите программные решения,</p> 
+                    <p class="text-first-block">Создавайте программы,</p> 
                     <p class="text-first-block">которые используются для</p> 
-                    <p class="text-first-block">шифрования данных приобмене</p>  
+                    <p class="text-first-block">шифрования данных,</p>  
                     <p class="text-first-block">информацией и её хранении</p> 
                 </div>
             </div>
